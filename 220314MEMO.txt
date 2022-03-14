@@ -1,0 +1,33 @@
+C++ programming language
+
+1. procedural PL
+2. object oriented pl
+	C++
+	클래스 - 속성(atribute) / 함수 (behavior)
+	  - 
+3. generic pl
+	C++
+	  - 자료형이 무한 -> template 이용해서 컴퓨터가 선택하게 하자 -> 지향점은 문제해결 ( 사용도구 : 자료구조(container) / 알고리즘)
+	    
+
+4. Template Meta PL
+	C++
+	  - meta < 3인칭 신 시점 < 한단계 위에서 설계
+
+5. Functional PL
+	C++
+	  - 
+
+프로그래밍 페러다임(programming paradigm) << 나중에 찾아보기
+
+
+
+ 컴파일러의 동작
+ 1 > 가장 확실한 함수 실행
+ 2 > 탬플릿 등 사용할수 있는 함수 실행 < 탬플릿 특수화 (templet specializetion)
+
+컴파일과정
+  - 소스코드를 변환하는 단계 < 분할된 코드 및 탬플릿 등을 알맞은 형태로 변환
+  - 변환된 코드를 기계어로 바꾸는 단계
+
+
