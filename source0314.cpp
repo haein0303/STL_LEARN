@@ -133,25 +133,5 @@ void memorycontrol() {
 }
 
 
-int main() {
-	
 
-	//srand(time(NULL)); //시간값을 이용해서 랜덤의 시작값을 바꿈
-//	for (int i = 0; i < 1000; i++) {
-	//	std::cout<<std::format("{:<15}", uid(dre)); // < 왼쪽정렬 / >오른쪽정렬 (기본) / ^ 가운대정렬
-	//}
-
-	//std::cout << "\n\n\n" << INT_MAX  << "\n" << 0B01111111'11111111'11111111'11111111 <<"\n" << 0x7FFFFFFF << endl;
-	//std::cout << std::numeric_limits<int>::max() << std::endl;
-	
-
-
-	//saveNum();
-	//loadNum("int1000개.txt");
-	//findandmaxsize();
-	
-	memorycontrol();
-	//save("source0314.cpp");
-
-}
 

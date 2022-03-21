@@ -46,5 +46,8 @@
     <Text Include="220314MEMO.txt">
       <Filter>메모</Filter>
     </Text>
+    <Text Include="220321MEMO.txt">
+      <Filter>메모</Filter>
+    </Text>
   </ItemGroup>
 </Project>

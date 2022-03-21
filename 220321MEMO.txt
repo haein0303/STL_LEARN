@@ -1,0 +1,21 @@
+
+컴파일러가 값을 결정하는 경우는 2가지 시점
+	1. 컴파일 타임 (compile time)
+	2. 실행 시간 (run time)
+
+
+메모리의 분류
+	1. STACK (지역변수)
+	2. DATA (전역)
+	3. FREE SOTRE (시스템 메모리)
+
+
+유니크 포인터를 사용하자
+	int* (raw pointer) 대신 unique_ptr<int>를 사용하자
+
+	FILE의 예제 < FILE* 는 파일의 첫번째를 가르키는 포인터
+	ifstream은 클래스 RAII
+
+지역개체가 지역 밖을 나갈때는
+반드시 소멸자를 불러준다(스텍 언와인딩)
+stack unwinding
