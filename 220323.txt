@@ -1,0 +1,30 @@
+stack unwinding
+
+container
+콘테이너가 가장 효율적으로 물건을 담는 방법은
+같은 타입에 데이터를 담는 것
+homogeneous data type
+
+EX ) array< int , 100 > 
+int말고 클래스를 담을 수 있음
+
+ifstream은 한글자씩 읽어오는 타입
+
+변신 알고리즘
+
+array -> contiguous memory
+
+code
+1. 지역
+2. 전역
+3. 시스템
+4. 코드
+
+코드영역 중 함수
+함수를 불를 때 함수의 주소를 소환
+함수의 주소는 함수명
+
+__cdecl < C함수로 작성됨을 보여주는 CPP의 이름
+
+void (*변수명)(void) = 함수
+함수() <<<< ()함수호출연산자
