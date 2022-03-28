@@ -43,13 +43,19 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="220314MEMO.txt">
+    <Text Include="220314.txt">
       <Filter>메모</Filter>
     </Text>
-    <Text Include="220321MEMO.txt">
+    <Text Include="220321.txt">
       <Filter>메모</Filter>
     </Text>
     <Text Include="220323.txt">
+      <Filter>메모</Filter>
+    </Text>
+    <Text Include="220328.txt">
+      <Filter>메모</Filter>
+    </Text>
+    <Text Include="2022 1학기 STL 월23수34 강의저장.txt">
       <Filter>메모</Filter>
     </Text>
   </ItemGroup>
