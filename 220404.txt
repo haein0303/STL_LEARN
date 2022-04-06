@@ -1,0 +1,23 @@
+컨테이너 종류
+sequence Container
+ - array
+ - vector
+ - deque
+ - forward_list
+ - list
+
+ associatibe Containers
+ - multiset
+ - multimap
+
+
+ const : read_only
+
+	for (const STRING& s: a) {  << const / 생성하지 않고 참조만
+		cout << s << endl;
+	}
+
+	for (auto i = a.crbegin(); i != a.crend(); ++i) {
+
+	}
+crbegin() / crend() 에서 ++ 연산자 사용시 메모리 역으로 가산 (--연산 실행)

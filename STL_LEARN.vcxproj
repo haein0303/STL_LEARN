@@ -145,10 +145,15 @@
     <ClCompile Include="save.cpp" />
     <ClCompile Include="source0307.cpp" />
     <ClCompile Include="source0314.cpp" />
+    <ClCompile Include="STRING.cpp" />
+    <ClCompile Include="소스.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="playground.h" />
     <ClInclude Include="save.h" />
+    <ClInclude Include="STRING.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="2022 1학기 STL 월23수34 강의저장.txt" />
@@ -156,6 +161,8 @@
     <Text Include="220321.txt" />
     <Text Include="220323.txt" />
     <Text Include="220328.txt" />
+    <Text Include="220330.txt" />
+    <Text Include="220404.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

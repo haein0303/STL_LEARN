@@ -1,66 +1,48 @@
 // ============================================================================
 //									STL
 // 
-//	2022.3.28 월23              월23수34                   
+//	2022.4.4. 월23              월23수34                   
 // 
-//	자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
-// 
-// [ STL 관찰용 ] STRING 클래스를 작성한다
-//   - 자원을 관리하는 클래스 (RAII)
-//   - 관찰을 위해 스페셜함수의 동작을 화면에 출력할 수 있게 한다.
-//   - 표준 String 클래스의 동작과 같이 코딩한다.
-//   - 객체 생성시 고유번호를 부여
+// 컨테이너 - 다른객체를 저장하는 객체
+// sequence Container
+//   - array    유일하게 크기가 컴파일 타임에 결정
+//   - vector   dynamic array 
 // ============================================================================
 
 
 #include <iostream>
-#include <functional>
+#include <vector>
+#include <string>
+#include <algorithm>
 #include "save.h"
+#include "STRING.h"
 
 using namespace std;
 
-bool 관찰{ false };
+extern bool 관찰;
 
-class STRING {
-public:
-	char* p;
-	size_t num;
-	int id;
-	static int gid;
-
-	STRING(const char* str) :id{ ++gid }, num { strlen(str) }, p{ new char[num] } {
-		if (관찰) {
-			//print("생성자 - const char*");
-		}
-		memcpy(p, str, num);
-	}
-	~STRING() {
-		delete[] p;
-	}
-
-	void operator()(char const *str) {
-		
-	}
-	friend ostream& operator<<  (ostream&, const STRING&);
-};
-
-ostream& operator<<(ostream& os, const STRING& str) {
-	for (int i{}; i < str.num; i++) {
-		os << str.p[i];
-	}
-	return os;
-}
-
-int STRING::gid{};
+//[문제] 키보드에서 입력하는 모든 단어를 받아라
+//오름차순으로 정렬한다
+//결과를 출력한다.
 
 int main() {
-	STRING a{"2022. 3. 28. "};
-	STRING b{ "STL" };
-
-	cout << a << b << endl;
-	cout << typeid("2022. 3. 28. ").name() << endl;
-
 	save("main.cpp");
+	//관찰 = true;
+	vector<string> v;
+
+	string word;
+
+	cout << "Q : 입력종료" << endl;
+	while (cin >> word) {
+		v.push_back(word);
+	}
+
+	sort(v.begin(), v.end());
+
+	for (const auto& a : v) {
+		cout << a << endl;
+	}
+
 }
 
 

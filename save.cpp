@@ -7,6 +7,7 @@
 // 2022. 3. 7.
 // ============================================================================
 
+#pragma once
 #include <iostream>
 #include <string_view>
 #include <fstream>
