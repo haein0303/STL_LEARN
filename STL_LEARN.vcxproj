@@ -146,9 +146,6 @@
     <ClCompile Include="source0307.cpp" />
     <ClCompile Include="source0314.cpp" />
     <ClCompile Include="STRING.cpp" />
-    <ClCompile Include="소스.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="playground.h" />
@@ -163,6 +160,8 @@
     <Text Include="220328.txt" />
     <Text Include="220330.txt" />
     <Text Include="220404.txt" />
+    <Text Include="220406.txt" />
+    <Text Include="220411.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

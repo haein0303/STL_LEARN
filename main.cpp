@@ -12,8 +12,9 @@
 
 #include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
+#include <array>
+#include <fstream>
 #include "save.h"
 #include "STRING.h"
 
@@ -27,22 +28,28 @@ extern bool 관찰;
 
 int main() {
 	save("main.cpp");
-	//관찰 = true;
-	vector<string> v;
 
-	string word;
+	//[문제] "소스.cpp"를 읽어 알파벳의 갯수를 다음과 같이 출력하라
+	// 대소문자는 구분하지않는다.
+	// [a] = 10
+	// [b] = 2
+	// ...
+	// [z] = 1
 
-	cout << "Q : 입력종료" << endl;
-	while (cin >> word) {
-		v.push_back(word);
+	array<int, 26> count;
+
+	ifstream in{ "main.cpp" };
+	
+	if (in) {
+		cout << "file Read" << endl;
+
+		vector<char> v{ istream_iterator<char> {in},{} };
+
+		for (char c : v) {
+			
+		}
 	}
-
-	sort(v.begin(), v.end());
-
-	for (const auto& a : v) {
-		cout << a << endl;
-	}
-
+	
 }
 
 

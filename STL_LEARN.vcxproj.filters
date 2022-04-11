@@ -36,9 +36,6 @@
     <ClCompile Include="STRING.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="소스.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="save.h">
@@ -71,6 +68,12 @@
       <Filter>메모</Filter>
     </Text>
     <Text Include="220404.txt">
+      <Filter>메모</Filter>
+    </Text>
+    <Text Include="220406.txt">
+      <Filter>메모</Filter>
+    </Text>
+    <Text Include="220411.txt">
       <Filter>메모</Filter>
     </Text>
   </ItemGroup>

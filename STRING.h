@@ -24,6 +24,11 @@ public:
 	STRING( const STRING& other );
 	STRING& operator=( const STRING& other );
 
+	//이동생성자/ 이동할당연산자 22.04.11.
+	STRING(STRING&& other) noexcept;
+	STRING& operator=(STRING&& other) noexcept;
+
+
 	STRING operator+( const STRING& rhs ) const;
 
 	void print( const char* s ) const;

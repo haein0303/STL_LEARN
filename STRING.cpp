@@ -56,6 +56,42 @@ STRING& STRING::operator=( const STRING& other )
 	return *this;
 }
 
+//이동생성자/ 이동할당연산자 22.04.11.
+//이동
+STRING::STRING(STRING&& other) noexcept
+	:id{++gid}
+{
+	num = other.num;
+	p = other.p;
+	other.num = 0;
+	other.p = nullptr;
+
+	if (관찰) {
+		print("이동생성");
+	}
+}
+
+//할당
+STRING& STRING::operator=(STRING&& other) noexcept{
+	if (this != &other) {
+		if (num) {
+			delete[] p;
+		}
+
+		num = other.num;
+		p = other.p;
+
+		other.num = 0;
+		other.p = nullptr;
+	}
+	
+	if (관찰) {
+		print("이동할당");
+	}
+	return *this;
+}
+
+
 STRING STRING::operator+( const STRING& rhs ) const
 {
 	STRING temp;

@@ -1,0 +1,10 @@
+Sequence Container - 원소의 순서를 임의 지정가능
+array - 유일하게 크기가 컴파일 타임에 결정
+vector - dynamic array (실행시간에 크기가 바뀌는 베열)
+
+undefined behavior < 미정의 동작
+
+
+vector<int>가 제공하는 자료형 - vector<int>::value_type;
+v가 제공하는 함수 맴버 - v.push_back();
+컨테이너간의 적용
