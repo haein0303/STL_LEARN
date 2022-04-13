@@ -76,5 +76,11 @@
     <Text Include="220411.txt">
       <Filter>메모</Filter>
     </Text>
+    <Text Include="LEE_2022 1학기 STL 월23수34 강의저장.txt">
+      <Filter>메모</Filter>
+    </Text>
+    <Text Include="220413.txt">
+      <Filter>메모</Filter>
+    </Text>
   </ItemGroup>
 </Project>

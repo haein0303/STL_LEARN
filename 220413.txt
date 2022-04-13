@@ -1,0 +1,60 @@
+vector의 반복자는 여러군대 생략이 가능하다
+
+vector는 연속된 메모리
+중간에 삽입할 경우
+
+contiguous < 인접한
+벡터는 인접한 메모리
+
+STL contiguous containers
+1. POD => T[];
+2. ARRAY => <T,N>
+3. vector
+4. string
+이런것들을 
+Span 이라고 STL에서 가지고 있음
+
+Associative Container
+Unordered Associative Container
+
+Sequence Container - 원소의 순서를 임의 지정가능
+- deque = double ended queue
+	   = 벡터와 리스트의 중간단계
+   	   = contiguous container가 아니다.
+	   = vector 보다 더 많은 원소 저장 < 메모리를 한곳에서 관리하는게 아닌 분산해서 관리하기 때문
+
+ 
+deque의 명령들
+-push-front
+-push-back
+
+무한루프 돌리기전 꿀팁
+작업관리자 띄워놓고 성능 탭
+
+
+push_front("-333");
+//[확인] vector와 deque 의 메모리 연속성
+클래스 객체를 만들어서 동작을 관찰하자
+
+class Test{
+	char c[1024];
+public:
+	void show() const {
+		cout << (int)this << endl;
+	}
+}
+v.push_front( Test{} );
+vector<Test> v(10); // < 10개를 만들기 함수로 부르면 갯수로 만들음
+for(int i = 0 ; i < 10 ; ++i ){
+	v.show();
+}
+deque<Test> d(10);
+for(int i = 0 ; i < 10 ; ++i ){
+	d.show();
+}
+
+//확인 deque가 vector보다 원소를 더 많이 저장할 수 있다고?
+vector<int> v;
+while(true){
+	
+}

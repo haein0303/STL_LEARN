@@ -11,10 +11,10 @@
 
 
 #include <iostream>
+#include <deque>
 #include <vector>
-#include <algorithm>
-#include <array>
 #include <fstream>
+#include <algorithm>
 #include "save.h"
 #include "STRING.h"
 
@@ -26,32 +26,32 @@ extern bool 관찰;
 //오름차순으로 정렬한다
 //결과를 출력한다.
 
+
+
 int main() {
 	save("main.cpp");
-
-	//[문제] "소스.cpp"를 읽어 알파벳의 갯수를 다음과 같이 출력하라
-	// 대소문자는 구분하지않는다.
-	// [a] = 10
-	// [b] = 2
-	// ...
-	// [z] = 1
-
-	array<int, 26> count;
+	//[문제]
+	// 소스.cpp 파일의 단어를 deque<STRING>에 저장하라.
+	// 길이 오름차순으로 정렬하라
+	// 정렬된 결과를 출력하라
 
 	ifstream in{ "main.cpp" };
-	
-	if (in) {
-		cout << "file Read" << endl;
+	deque<string> d{};
+	string s;
+	while (in >> s) {
+		d.push_front(s.data());
+	}
 
-		vector<char> v{ istream_iterator<char> {in},{} };
+	sort(d.begin(), d.end(), [](const string &a, const string &b){
+		return a.length() > b.length();
+	});
 
-		for (char c : v) {
-			
-		}
+	for (const auto &a : d) {
+		cout << a << endl;
 	}
 	
+	
+
+
+
 }
-
-
-
-
