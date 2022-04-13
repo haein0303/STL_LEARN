@@ -1,0 +1,2042 @@
+파일 이름 :: 소스.cpp
+파일 크기 :: 1949
+저장 시간 :: Thu Mar  3 15:37:41 2022
+
+
+// ============================================================================
+// 2022. 3. 2 수34							월23수34 (1주 1일)
+// - 강의소개 (책, cppreference.com)
+// - 코딩 스타일(c++ coding convention) - 참고(google c++ coding convention)
+// - 컴파일러 환경 세팅 - Release, x64
+//						- 메뉴 - 프로젝트 - 속성 - 최신 초안기능
+// - save 파일 작성 (한 학기 강의 내용을 자동저장한다.)
+// 
+// 공부할 내용 - 파일 입출력(텍스트/바이너리모드)
+// ============================================================================
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <string_view>
+#include <fstream>
+#include <filesystem>
+#include <vector>
+#include <iterator>
+#include <chrono>
+#include <algorithm>
+
+// 코딩할 내용 - "소스.cpp"를 읽어 강의저장파일에 덧붙인다.
+
+void save(std::string_view);
+
+int main()
+{
+	//std::cout << sizeof(std::string) << std::endl << sizeof(std::string_view) << std::endl;
+	save("소스.cpp");
+}
+
+void save(const std::string_view fname)
+{
+	// 현재 시간을 화면에 출력해 본다.
+	auto now = floor<std::chrono::seconds>(std::chrono::system_clock::now());
+	std::time_t time = std::chrono::system_clock::to_time_t(now);
+
+	// 읽을 파일을 연다.
+	std::ifstream in{ fname.data() };
+
+	// 저장할 파일도 연다(덧붙이기 모드로 열어야 한다.)
+	std::ofstream out{ "2022 1학기 STL 월23수34 강의저장.txt", std::ios::app};
+
+	// 저장할 파일의 크기와 현재 시간을 강의저장 파일에 기록한다.
+	out << "파일 이름 :: " << fname << std::endl;
+	out << "파일 크기 :: " << std::filesystem::file_size(fname) << std::endl;
+	out << "저장 시간 :: " << std::ctime(&time) << std::endl;
+
+	out << std::endl;
+
+	// 벡터를 만들면서 in 파일의 내용을 다 읽어온다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };	
+
+	// v로 읽어 온 파일을 out에 출력한다.
+	copy(v.begin(), v.end(), std::ostream_iterator<char>{out});
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 508
+저장 시간 :: Mon Mar  7 10:39:26 2022
+
+// ============================================================================
+// 2022. 3. 7 월23							월23수34 (1주 2일)
+// 
+// - save 함수를 분리한다.
+// - 
+// ============================================================================
+
+#include <iostream>
+#include "save.h"
+
+int main()
+{
+	//std::cout << sizeof(std::string) << std::endl << sizeof(std::string_view) << std::endl;
+	save("202201_STL.cpp");
+}
+
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 870
+저장 시간 :: Mon Mar  7 12:06:50 2022
+
+// ============================================================================
+// 2022. 3. 7 월23							월23수34 (1주 2일)
+// 
+// - C++ 복습 - &, class Dog
+// ============================================================================
+#include <iostream>
+#include "save.h"
+
+//using Dog = int;
+
+class Dog {
+	int data;
+public:
+	Dog(int data) : data(data) {}
+	//operator int() { return data; }
+	friend std::ostream& operator<<(std::ostream&, const Dog&);
+
+};
+
+std::ostream& operator<<(std::ostream& os, const Dog& d) {
+	return os << d.data;
+}
+
+void change(Dog& a, Dog& b)
+{
+	Dog t = a;
+	//a.operator= (b);
+	a = b;
+	b = t;
+}
+
+int main()
+{
+	Dog a{ 1 };
+	Dog b{ 2 };
+
+	change(a, b);
+
+	std::cout << a << ", " << b << std::endl;
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 788
+저장 시간 :: Mon Mar  7 12:15:55 2022
+
+// ============================================================================
+// 2022. 3. 7 월23							월23수34 (1주 2일)
+// 
+// - C++ 복습 - &, class Dog
+// ============================================================================
+#include <iostream>
+#include "save.h"
+
+class Dog {
+	std::string name;
+	int age;
+public:
+	Dog(std::string name, int age) : name(name), age(age) {}
+};
+
+template <typename T>
+void change(T& a, T& b)
+{
+	T temp = a;
+	a = b;
+	b = temp;
+}
+
+int main()
+{
+	int a{ 1 }, b{ 2 };
+	change(a, b);
+
+	std::string c = "STL";
+	std::string d = "C++";
+	change(c, d);
+
+	Dog e{ "코코", 3 };
+	Dog f{ "댕댕이", 2 };
+	change(e, f);
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 948
+저장 시간 :: Mon Mar 14 11:43:37 2022
+
+// ============================================================================
+// 2022. 3. 14 월23							월23수34 (2주 1일)
+// 
+// 많은 수의 자료를 다루는 연습
+// 1.	int -> class
+//		int 1000개를 파일에 저장하기
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <random>
+#include <format>
+#include "save.h"
+
+// 1. Procedural PL			-> C
+// 2. Object Oriented PL	-> C++, Class	
+// 3. Generic PL			-> C++, STL
+// 4. Template Meta PL		-> C++
+// 5. Funtional PL			-> C++, [], filter
+
+// [문제] int 1000개를 화면에 출력하라.
+
+std::random_device rd;
+std::default_random_engine dre(rd());
+std::uniform_int_distribution<int> uid(0, 100000);
+
+int main()
+{
+	for (int i = 0; i < 1000; ++i) {
+		std::cout << std::format("{:10}", uid(dre));
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1066
+저장 시간 :: Mon Mar 14 11:50:56 2022
+
+// ============================================================================
+// 2022. 3. 14 월23							월23수34 (2주 1일)
+// 
+// 많은 수의 자료를 다루는 연습
+// 1.	int -> class
+//		int 1000개를 파일에 저장하기
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <random>
+#include <format>
+#include "save.h"
+
+// 1. Procedural PL			-> C
+// 2. Object Oriented PL	-> C++, Class	
+// 3. Generic PL			-> C++, STL
+// 4. Template Meta PL		-> C++
+// 5. Funtional PL			-> C++, [], filter
+
+// [문제] int의 최댓값을 화면에 출력하라.
+// [문제] 엔진과 분포를 이용하여 임의의(pseudo-random) int 1000개를 화면에 출력하라.
+
+std::random_device rd;
+std::default_random_engine dre(rd());
+std::uniform_int_distribution<int> uid(0, 100000);
+
+int main()
+{
+	std::cout << INT_MAX;
+	//for (int i = 0; i < 1000; ++i) {
+	//	std::cout << std::format("{:10}", uid(dre));
+	//}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1091
+저장 시간 :: Mon Mar 14 11:51:24 2022
+
+// ============================================================================
+// 2022. 3. 14 월23							월23수34 (2주 1일)
+// 
+// 많은 수의 자료를 다루는 연습
+// 1.	int -> class
+//		int 1000개를 파일에 저장하기
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <random>
+#include <format>
+#include "save.h"
+
+// 1. Procedural PL			-> C
+// 2. Object Oriented PL	-> C++, Class	
+// 3. Generic PL			-> C++, STL
+// 4. Template Meta PL		-> C++
+// 5. Funtional PL			-> C++, [], filter
+
+// [문제] int의 최댓값을 화면에 출력하라.
+// [문제] 엔진과 분포를 이용하여 임의의(pseudo-random) int 1000개를 화면에 출력하라.
+
+std::random_device rd;
+std::default_random_engine dre(rd());
+std::uniform_int_distribution<int> uid(0, 100000);
+
+int main()
+{
+	std::cout << INT_MAX;
+	std::cout << LONG_MAX;
+	//for (int i = 0; i < 1000; ++i) {
+	//	std::cout << std::format("{:10}", uid(dre));
+	//}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1083
+저장 시간 :: Mon Mar 14 11:54:07 2022
+
+// ============================================================================
+// 2022. 3. 14 월23							월23수34 (2주 1일)
+// 
+// 많은 수의 자료를 다루는 연습
+// 1.	int -> class
+//		int 1000개를 파일에 저장하기
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <random>
+#include <format>
+#include "save.h"
+
+// 1. Procedural PL			-> C
+// 2. Object Oriented PL	-> C++, Class	
+// 3. Generic PL			-> C++, STL
+// 4. Template Meta PL		-> C++
+// 5. Funtional PL			-> C++, [], filter
+
+// [문제] int의 최댓값을 화면에 출력하라.
+// [문제] 엔진과 분포를 이용하여 임의의(pseudo-random) int 1000개를 화면에 출력하라.
+
+std::random_device rd;
+std::default_random_engine dre(rd());
+std::uniform_int_distribution<int> uid(0, 100000);
+
+int main()
+{
+	int num = 0x0 - 1;
+	std::cout << num;
+	//for (int i = 0; i < 1000; ++i) {
+	//	std::cout << std::format("{:10}", uid(dre));
+	//}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1090
+저장 시간 :: Mon Mar 14 12:00:53 2022
+
+// ============================================================================
+// 2022. 3. 14 월23							월23수34 (2주 1일)
+// 
+// 많은 수의 자료를 다루는 연습
+// 1.	int -> class
+//		int 1000개를 파일에 저장하기
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <random>
+#include <format>
+#include "save.h"
+
+// 1. Procedural PL			-> C
+// 2. Object Oriented PL	-> C++, Class	
+// 3. Generic PL			-> C++, STL
+// 4. Template Meta PL		-> C++
+// 5. Funtional PL			-> C++, [], filter
+
+// [문제] int의 최댓값을 화면에 출력하라.
+// [문제] 엔진과 분포를 이용하여 임의의(pseudo-random) int 1000개를 화면에 출력하라.
+
+std::random_device rd;
+std::default_random_engine dre(rd());
+std::uniform_int_distribution<int> uid(0, 100000);
+
+int main()
+{
+	std::cout << std::numeric_limits<int>::max();
+	//for (int i = 0; i < 1000; ++i) {
+	//	std::cout << std::format("{:10}", uid(dre));
+	//}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1165
+저장 시간 :: Wed Mar 16 11:40:34 2022
+
+// ============================================================================
+// 2022. 3. 16 수34							월23수34 (2주 2일)
+//
+//  숙제 - 파일 입출력 알아오기
+// "int 1000개.txt" 에 저장된 int 1000개를 읽어 화면에 출력한다.
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <random>
+#include <format>
+#include "save.h"
+
+// 1. Procedural PL			-> C
+// 2. Object Oriented PL	-> C++, Class	
+// 3. Generic PL			-> C++, STL
+// 4. Template Meta PL		-> C++
+// 5. Funtional PL			-> C++, [], filter
+
+// [문제] int의 최댓값을 화면에 출력하라.
+// [문제] 엔진과 분포를 이용하여 생성한 int값 1000개를
+// 파일 "int 1000개.txt"에 저장하라.
+
+//std::random_device rd;
+std::default_random_engine dre;
+std::uniform_int_distribution uid;
+
+int main()
+{
+	std::ofstream out("int 1000개.txt");
+	if (out.is_open()) {
+		for (int i = 0; i < 1000; ++i) {
+			out << std::format("{:12}", uid(dre));
+		}
+		out.close();
+	}
+	else {
+		std::cout << "error" << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 996
+저장 시간 :: Wed Mar 16 11:42:34 2022
+
+// ============================================================================
+// 2022. 3. 16 수34							월23수34 (2주 2일)
+//
+//  숙제 - 파일 입출력 알아오기
+// "int 1000개.txt" 에 저장된 int 1000개를 읽어 화면에 출력한다.
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "save.h"
+
+// 1. Procedural PL			-> C
+// 2. Object Oriented PL	-> C++, Class	
+// 3. Generic PL			-> C++, STL
+// 4. Template Meta PL		-> C++
+// 5. Funtional PL			-> C++, [], filter
+
+// [문제] "int 1000개.txt" 에 저장된 int 1000개를 읽어 화면에 출력한다.
+
+int main()
+{
+	std::string s;
+	std::ifstream in("int 1000개.txt");
+	if (in.is_open()) {
+		for (int i = 0; i < 1000; ++i) {
+			in >> s;
+			std::cout << s << " ";
+		}
+		in.close();
+	}
+	else {
+		std::cout << "error" << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1070
+저장 시간 :: Wed Mar 16 11:56:25 2022
+
+// ============================================================================
+// 2022. 3. 16 수34							월23수34 (2주 2일)
+//
+//  숙제 - 파일 입출력 알아오기
+// "int 1000개.txt" 에 저장된 int 1000개를 읽어 화면에 출력한다.
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "save.h"
+
+// 1. Procedural PL			-> C
+// 2. Object Oriented PL	-> C++, Class	
+// 3. Generic PL			-> C++, STL
+// 4. Template Meta PL		-> C++
+// 5. Funtional PL			-> C++, [], filter
+
+// [문제] "int 1000개.txt" 에 저장된 int 1000개 중
+// 가장 큰 값을 화면에 출력한다.
+
+int main()
+{
+	int num;
+	int max = 0;
+	std::ifstream in("int 1000개.txt");
+	if (in.is_open()) {
+		for (int i = 0; i < 1000; ++i) {
+			in >> num;
+			if (max < num) {
+				max = num;
+			}
+		}
+		in.close();
+		std::cout << max << std::endl;
+	}
+	else {
+		std::cout << "error" << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 748
+저장 시간 :: Wed Mar 16 12:05:02 2022
+
+// ============================================================================
+// 2022. 3. 16 수34							월23수34 (2주 2일)
+//
+//  숙제 - 파일 입출력 알아오기
+// "int 1000개.txt" 에 저장된 int 1000개를 읽어 화면에 출력한다.
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+
+// [문제] "int 1000개.txt" 에 저장된 int 1000개 중
+// 가장 큰 값을 화면에 출력한다.
+
+int main()
+{
+	std::ifstream in("int 1000개.txt");
+	std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 748
+저장 시간 :: Wed Mar 16 12:05:30 2022
+
+// ============================================================================
+// 2022. 3. 16 수34							월23수34 (2주 2일)
+//
+//  숙제 - 파일 입출력 알아오기
+// "int 1000개.txt" 에 저장된 int 1000개를 읽어 화면에 출력한다.
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+
+// [문제] "int 1000개.txt" 에 저장된 int 1000개 중
+// 가장 큰 값을 화면에 출력한다.
+
+int main()
+{
+	std::ifstream in("int 1000개.txt");
+	std::cout << *std::min_element(std::istream_iterator<int>{in}, {}) << std::endl;
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 776
+저장 시간 :: Wed Mar 16 12:37:30 2022
+
+// ============================================================================
+// 2022. 3. 16 수34							월23수34 (2주 2일)
+//
+//  숙제 - 파일 입출력 알아오기
+// "int 1000개.txt" 에 저장된 int 1000개를 읽어 화면에 출력한다.
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <filesystem>
+#include "save.h"
+
+// [문제] int 1000개를 저장하려면 메모리 몇 바이트가 필요합니까
+// 이 답에 맞게 int를 파일에 저장하고 메모리 크기를 확인하세요.
+int main()
+{
+	std::ofstream out{ "int 1000개.txt" };
+	for (int i = 1; i <= 1000; ++i) {
+		out.write((const char*)&i, sizeof(int));
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 879
+저장 시간 :: Wed Mar 16 12:41:36 2022
+
+// ============================================================================
+// 2022. 3. 16 수34							월23수34 (2주 2일)
+//
+//  숙제 - 파일 입출력 알아오기
+// "int 1000개.txt" 에 저장된 int 1000개를 읽어 화면에 출력한다.
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <random>
+#include "save.h"
+
+// [문제] int 1000개를 저장하려면 메모리 몇 바이트가 필요합니까
+// 이 답에 맞게 int를 파일에 저장하고 메모리 크기를 확인하세요.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid;
+
+int main()
+{
+	std::ofstream out{ "int 1000개.txt" };
+
+	int num;
+	for (int i = 1; i <= 1000; ++i) {
+		num = uid(dre);
+		out.write((const char*)&num, sizeof(int));
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 897
+저장 시간 :: Wed Mar 16 12:44:43 2022
+
+// ============================================================================
+// 2022. 3. 16 수34							월23수34 (2주 2일)
+//
+//  숙제 - 파일 입출력 알아오기
+// "int 1000개.txt" 에 저장된 int 1000개를 읽어 화면에 출력한다.
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <random>
+#include "save.h"
+
+// [문제] int 1000개를 저장하려면 메모리 몇 바이트가 필요합니까
+// 이 답에 맞게 int를 파일에 저장하고 메모리 크기를 확인하세요.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid;
+
+int main()
+{
+	std::ofstream out{ "int 1000개.txt", std::ios::binary };
+
+	int num;
+	for (int i = 1; i <= 1000; ++i) {
+		num = uid(dre);
+		out.write((const char*)&num, sizeof(int));
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 839
+저장 시간 :: Wed Mar 16 13:02:23 2022
+
+// ============================================================================
+// 2022. 3. 16 수34							월23수34 (2주 2일)
+//
+//  숙제 - 파일 입출력 알아오기
+// "int 1000개.txt" 에 저장된 int 1000개를 읽어 화면에 출력한다.
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include "save.h"
+
+// [문제] "int" 1000개.txt" 파일에 int 1000개가 binary 모드로 저장되어 있다.
+// 읽어서 가장 큰 값을 출력하라.
+
+int main()
+{
+	std::ifstream in{ "int 1000개.txt", std::ios::binary };
+
+	int num;
+	int max = 0;
+
+	for (int i = 0; i < 1000; ++i) {
+		in.read((char*)&num, sizeof(int));
+		if (max < num) {
+			max = num;
+		}
+	}
+
+	std::cout << max;
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 895
+저장 시간 :: Wed Mar 16 13:06:24 2022
+
+// ============================================================================
+// 2022. 3. 16 수34							월23수34 (2주 2일)
+//
+//  숙제 - 파일 입출력 알아오기
+// "int 1000개.txt" 에 저장된 int 1000개를 읽어 화면에 출력한다.
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <array>
+#include "save.h"
+
+// [문제] "int" 1000개.txt" 파일에 int 1000개가 binary 모드로 저장되어 있다.
+// 읽어서 가장 큰 값을 출력하라.
+
+int main()
+{
+	std::ifstream in{ "int 1000개.txt", std::ios::binary };
+
+	std::array<int, 4000> num;
+	int max = 0;
+
+	in.read((char*)num.data(), sizeof(int) * 1000);
+
+	for (int i = 0; i < 1000; i++) {
+		if (num[i] > max) {
+			max = num[i];
+		}
+	}
+
+	std::cout << max;
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 822
+저장 시간 :: Wed Mar 16 13:17:42 2022
+
+// ============================================================================
+// 2022. 3. 16 수34							월23수34 (2주 2일)
+//
+// 파일 입출력은 더 이상 알아볼것이 없다.
+//		text/binary 와 read/write 와 >>, << 의 조합 말고는 없기 때문이다.
+// 
+//  - 다음 - 메모리
+// 
+// class 입출력
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <array>
+#include "save.h"
+
+// [문제] 사용자가 원하는 개수만큼 int를 저장할 메모리를 만들어라
+
+int main()
+{
+	int mem;
+	int* num;
+	std::cout << "몇 개의 int를 원하시나요? : ";
+	std::cin >> mem;
+
+	num = new int[mem];
+	for (int i = 0; i < mem; ++i) {
+		std::cin >> num[i];
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1386
+저장 시간 :: Mon Mar 21 14:43:48 2022
+
+// ============================================================================
+// 2022. 3. 21 월23							월23수34 (3주 1일)
+//
+// 지난시간 - int[100] 대신 array<int, 100>을 사용하자
+// 오늘		- int* (raw pointer) 대신 unique_ptr<int>를 사용하자
+// 
+// 컴파일러가 값을 결정하는 경우는 2가지 시점이 있다.
+//  1. 컴파일 타임(compile time)
+//  2. 런타임(run time)
+// 
+// 찾아보기 - RAII (Resource Acquisition Is Initialization) / Stack unwinding
+// ============================================================================
+#include <iostream>
+#include <memory>
+#include <string>
+#include "save.h"
+
+// [문제] "소스.cpp"를 읽어
+// 소문자를 대문자로 변경하여
+// "소스 대문자.cpp"에 저장하라
+
+int main()
+{
+	std::ifstream in("202201_STL.cpp");
+	std::ofstream out("소스 대문자.cpp", std::ios::app);
+
+	std::string data;
+	int size = 0;
+
+	if (in.is_open()) {
+		in.seekg(0, std::ios::end);
+		size = in.tellg();
+		data.resize(size);
+		in.seekg(0, std::ios::beg);
+		in.read(&data.at(0), size);
+		for (int i = 0; i < size; ++i) {
+			if (data.at(i) >= 97 && data.at(i) <= 122) {
+				data.at(i) -= 32;
+			}
+		}
+		//std::cout << data << std::endl;
+	}
+	else {
+		std::cout << "파일을 확인하세요. " << std::endl;
+	}
+
+	out.write(data.c_str(), size);
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1385
+저장 시간 :: Wed Mar 23 11:33:51 2022
+
+// ============================================================================
+// 2022. 3. 23 수34							월23수34 (3주 2일)
+//
+// 지난시간 - int[100] 대신 array<int, 100>을 사용하자
+// 오늘		- int* (raw pointer) 대신 unique_ptr<int>를 사용하자
+// 
+// 컴파일러가 값을 결정하는 경우는 2가지 시점이 있다.
+//  1. 컴파일 타임(compile time)
+//  2. 런타임(run time)
+// 
+// 찾아보기 - RAII (Resource Acquisition Is Initialization) / Stack unwinding
+// ============================================================================
+#include <iostream>
+#include <memory>
+#include <string>
+#include <locale>
+#include <cctype>
+#include "save.h"
+
+// [문제] "소스.cpp"를 읽어
+// 소문자를 대문자로 변경하여
+// "소스 대문자.cpp"에 저장하라
+
+int main()
+{
+	std::ifstream in("202201_STL.cpp");
+	std::string data;
+	int size = 0;
+
+	if (in.is_open()) {
+		in.seekg(0, std::ios::end);
+		size = in.tellg();
+		data.resize(size);
+		in.seekg(0, std::ios::beg);
+		in.read(&data.at(0), size);
+		for (char& ch : data) {
+			if (islower(ch)) {
+				ch = toupper(ch);
+			}
+		}
+		std::cout << data << std::endl;
+	}
+	else {
+		std::cout << "파일을 확인하세요. " << std::endl;
+	}
+
+	std::ofstream out("소스 대문자.cpp", std::ios::app);
+	out.write(data.c_str(), size);
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 865
+저장 시간 :: Wed Mar 23 11:56:00 2022
+
+// ============================================================================
+// 2022. 3. 23 수34							월23수34 (3주 2일)
+//
+// 오늘 - 호출 가능 타입(callable type) - 정렬(sort)
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <memory>
+#include <string>
+#include <locale>
+#include <cctype>
+#include "save.h"
+
+// [문제] "소스.cpp"를 읽어
+// 소문자를 대문자로 변경하여
+// "소스 대문자.cpp"에 저장하라
+
+int main()
+{
+	std::ifstream in("202201_STL.cpp");
+	std::ofstream out("소스 대문자.cpp");
+
+	char ch;
+
+	in >> std::noskipws;
+	while (in >> ch) {
+		ch = toupper(ch);
+		out << ch;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 851
+저장 시간 :: Wed Mar 23 12:03:06 2022
+
+// ============================================================================
+// 2022. 3. 23 수34							월23수34 (3주 2일)
+//
+// 오늘 - 호출 가능 타입(callable type) - 정렬(sort)
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include "save.h"
+
+// [문제] "소스.cpp"를 읽어
+// 소문자를 대문자로 변경하여
+// "소스 대문자.cpp"에 저장하라
+
+int main()
+{
+	std::ifstream in("202201_STL.cpp");
+	std::ofstream out("소스 대문자.cpp");
+
+	std::transform(std::istreambuf_iterator<char>{in}, {}, std::ostreambuf_iterator<char>{out}, [](char c) {
+		return toupper(c);
+		});
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1156
+저장 시간 :: Wed Mar 23 12:52:05 2022
+
+// ============================================================================
+// 2022. 3. 23 수34							월23수34 (3주 2일)
+//
+// 오늘 - 호출 가능 타입(callable type) - 정렬(sort)
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <random>
+#include <array>
+#include <algorithm>
+#include <format>
+#include "save.h"
+
+// [문제] 값이 [1, 100] 랜덤 int 100개를 생성하고
+// 내림차순으로 정렬한 후
+// 정렬된 int 100개를 화면에 출력하시오
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid {1, 100};
+
+int main()
+{
+	std::array<int, 100> numbers;		// 자료구조
+	for (int& number : numbers) {
+		number = uid(dre);
+	}
+	for (int number : numbers) {
+		std::cout << std::format("{:4}", number);
+	}
+	std::sort(numbers.begin(), numbers.end(), [](int a, int b) {return a > b; });	// 알고리즘
+	std::cout << std::endl;
+	for (int number : numbers) {
+		std::cout << std::format("{:4}", number);
+	}
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 746
+저장 시간 :: Wed Mar 23 13:00:29 2022
+
+// ============================================================================
+// 2022. 3. 23 수34							월23수34 (3주 2일)
+//
+// 오늘 - 호출 가능 타입(callable type) - 정렬(sort)
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <random>
+#include <array>
+#include <algorithm>
+#include <format>
+#include "save.h"
+
+void f() { std::cout << "함수 호출" << std::endl; }
+
+int main()
+{
+	auto x = f;
+	x();
+	std::cout << typeid(x).name() << std::endl;
+	std::cout << std::addressof(x) << std::endl;
+	
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 815
+저장 시간 :: Wed Mar 23 13:14:39 2022
+
+// ============================================================================
+// 2022. 3. 23 수34							월23수34 (3주 2일)
+//
+// 오늘 - 호출 가능 타입(callable type) - 정렬(sort)
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <thread>
+#include "save.h"
+
+void jump() { std::cout << "점프" << std::endl; }
+void slide() { std::cout << "슬라이드" << std::endl; }
+
+int main()
+{
+	void (*x)(void) = jump;
+	save("202201_STL.cpp");
+	int i{};
+	while (1) {
+		x();
+		std::this_thread::sleep_for(std::chrono::seconds(1));
+		if ((++i % 3) == 0) {
+			x = slide;
+		}
+	}
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 836
+저장 시간 :: Mon Mar 28 10:56:18 2022
+
+// ============================================================================
+// 2022. 3. 28 월23							월23수34 (4주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// 
+// ============================================================================
+#include <iostream>
+#include <thread>
+#include "save.h"
+
+// 프로그램에서 기능을 담당 - 서브루틴, 함수
+// 프로그램이 실행될 때 기능을 변경하고 싶다.
+
+// 게임 - 설정 - 버튼의 기능 변경
+
+void jump()
+{
+	std::cout << "점프" << std::endl;
+}
+
+void slide()
+{
+	std::cout << "슬라이드" << std::endl;
+}
+
+int main()
+{
+	int count = 0;
+	auto f = jump;
+	std::cout << sizeof(f) << std::endl;
+	std::cout << typeid(f).name() << std::endl;
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 761
+저장 시간 :: Mon Mar 28 11:13:11 2022
+
+// ============================================================================
+// 2022. 3. 28 월23							월23수34 (4주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// 
+// ============================================================================
+#include <iostream>
+#include <thread>
+#include "save.h"
+
+// 호출가능(callable) 타입(type)
+// 1. 함수포인터 - 함수의 시작번지를 저장할 수 있다.
+// 2. 람다(lambda) - 이름없는 함수
+// 3. ()를 오버로딩한 클래스
+// 4. 멤버함수 포인터
+
+int main()
+{
+	auto f = []() { std::cout << "hello world" << std::endl; };
+	f();
+	std::cout << typeid(f).name() << std::endl;;
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 769
+저장 시간 :: Mon Mar 28 11:19:04 2022
+
+// ============================================================================
+// 2022. 3. 28 월23							월23수34 (4주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// 
+// ============================================================================
+#include <iostream>
+#include <thread>
+#include "save.h"
+
+// 호출가능(callable) 타입(type)
+// 1. 함수포인터 - 함수의 시작번지를 저장할 수 있다.
+// 2. 람다(lambda) - 이름없는 함수
+// 3. ()를 오버로딩한 클래스
+// 4. 멤버함수 포인터
+
+int main()
+{
+	auto f = []() -> void { std::cout << "hello world" << std::endl; };
+	f();
+	std::cout << typeid(f).name() << std::endl;;
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 709
+저장 시간 :: Mon Mar 28 11:19:46 2022
+
+// ============================================================================
+// 2022. 3. 28 월23							월23수34 (4주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// 
+// ============================================================================
+#include <iostream>
+#include <thread>
+#include "save.h"
+
+// 호출가능(callable) 타입(type)
+// 1. 함수포인터 - 함수의 시작번지를 저장할 수 있다.
+// 2. 람다(lambda) - 이름없는 함수
+// 3. ()를 오버로딩한 클래스
+// 4. 멤버함수 포인터
+
+int main()
+{
+	class Dog {};
+	std::cout << typeid(Dog).name() << std::endl;
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 710
+저장 시간 :: Mon Mar 28 11:20:19 2022
+
+// ============================================================================
+// 2022. 3. 28 월23							월23수34 (4주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// 
+// ============================================================================
+#include <iostream>
+#include <thread>
+#include "save.h"
+
+// 호출가능(callable) 타입(type)
+// 1. 함수포인터 - 함수의 시작번지를 저장할 수 있다.
+// 2. 람다(lambda) - 이름없는 함수
+// 3. ()를 오버로딩한 클래스
+// 4. 멤버함수 포인터
+
+class Dog {};
+
+int main()
+{
+	std::cout << typeid(Dog).name() << std::endl;
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 754
+저장 시간 :: Mon Mar 28 11:22:19 2022
+
+// ============================================================================
+// 2022. 3. 28 월23							월23수34 (4주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// 
+// ============================================================================
+#include <iostream>
+#include <thread>
+#include "save.h"
+
+// 호출가능(callable) 타입(type)
+// 1. 함수포인터 - 함수의 시작번지를 저장할 수 있다.
+// 2. 람다(lambda) - 이름없는 함수
+// 3. ()를 오버로딩한 클래스
+// 4. 멤버함수 포인터
+
+auto f = []() { std::cout << "hello world" << std::endl; };
+
+int main()
+{
+	std::cout << typeid(f).name() << std::endl;
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 882
+저장 시간 :: Mon Mar 28 11:27:03 2022
+
+// ============================================================================
+// 2022. 3. 28 월23							월23수34 (4주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// 
+// ============================================================================
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+// 호출가능(callable) 타입(type)
+// 1. 함수포인터 - 함수의 시작번지를 저장할 수 있다.
+// 2. 람다(lambda) - 이름없는 함수
+//				??? 이름이 없는데 누가 어떻게 불러 쓰나?
+// 3. ()를 오버로딩한 클래스
+// 4. 멤버함수 포인터
+
+
+int main()
+{
+	std::array<int, 5> a{ 1, 3, 5, 2, 4 };
+	std::sort(a.begin(), a.end(), [](int a, int b) { return a > b; });
+	for (int n : a) {
+		std::cout << n << std::endl;
+	}
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1125
+저장 시간 :: Mon Mar 28 11:53:07 2022
+
+// ============================================================================
+// 2022. 3. 28 월23							월23수34 (4주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// 
+// ============================================================================
+#include <iostream>
+#include <functional>
+#include "save.h"
+
+// 호출가능(callable) 타입(type)
+// 1. 함수포인터 - 함수의 시작번지를 저장할 수 있다.
+// 2. 람다(lambda) - 이름없는 함수
+//				??? 이름이 없는데 누가 어떻게 불러 쓰나?
+// 3. ()를 오버로딩한 클래스 - functor
+// 4. 멤버함수 포인터
+
+// 호출가능한 타입의 종류? - 무한
+// function - 어떤 호출가능한 타입이더라도 function 객체로 대표할 수 있다.
+
+void jump() { std::cout << "jump" << std::endl; }
+void slide() { std::cout << "slide" << std::endl; }
+
+int main()
+{
+	// 기본적으로 주소를 담고있는 포인터인데..
+	// 그러면 동적할당을 통해 배열로 만든다던가..
+	// 포인터를 담고있는 이중포인터를 만들수는 없나
+
+	std::function<void()> f = jump;
+	f();
+	f = slide;
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 813
+저장 시간 :: Mon Mar 28 11:59:48 2022
+
+// ============================================================================
+// 2022. 3. 28 월23							월23수34 (4주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// 
+// ============================================================================
+#include <iostream>
+#include <functional>
+#include "save.h"
+
+
+void jump() { std::cout << "jump" << std::endl; }
+void slide() { std::cout << "slide" << std::endl; }
+
+int main()
+{
+	// 기본적으로 주소를 담고있는 포인터인데..
+	// 그러면 동적할당을 통해 배열로 만든다던가..
+	// 포인터를 담고있는 이중포인터를 만들수는 없나
+	std::function<void()> *f = new std::function<void()>[100];
+	f[0] = slide;
+	// 되네 ㅋㅋ
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 738
+저장 시간 :: Mon Apr  4 10:36:39 2022
+
+// ============================================================================
+// 2022. 4. 4 월23							월23수34 (5주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <array>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	관찰 = true;
+
+	std::array<STRING, 3> strs{ "2022년 1학기 STL", "월23 수34", "3월 30일 수요일 수34교시 4주 2일 강의" };
+
+	for (int i = 0; i < strs.size(); ++i) {
+		std::cout << "strs[" << i << "] - " << strs[i] << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 848
+저장 시간 :: Mon Apr  4 10:48:45 2022
+
+// ============================================================================
+// 2022. 4. 4 월23							월23수34 (5주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <array>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	//관찰 = true;
+
+	std::array<STRING, 3> a{ "컨테이너", "반복자", "알고리즘" };
+
+	// [문제] a에 들어있는 원소(element)를 처음부터 끝까지 순회(iteration)하면서
+	// 값을 출력해 보라.
+	std::array<STRING, 3>::iterator p = a.begin();
+	std::cout << *p << std::endl;
+	++p;
+	std::cout << *p << std::endl;
+	++p;
+	std::cout << *p << std::endl;
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 842
+저장 시간 :: Mon Apr  4 10:53:18 2022
+
+// ============================================================================
+// 2022. 4. 4 월23							월23수34 (5주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <array>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	//관찰 = true;
+
+	std::array<STRING, 3> a{ "컨테이너", "반복자", "알고리즘" };
+
+	// [문제] a에 들어있는 원소(element)를 처음부터 끝까지 순회(iteration)하면서
+	// 값을 출력해 보라.
+	for (std::array<STRING, 3>::iterator i = a.begin(); i != a.end(); ++i) {
+		std::cout << *i << std::endl;
+		std::cout << *a.begin() << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 774
+저장 시간 :: Mon Apr  4 10:53:46 2022
+
+// ============================================================================
+// 2022. 4. 4 월23							월23수34 (5주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <array>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	//관찰 = true;
+
+	std::array<STRING, 3> a{ "컨테이너", "반복자", "알고리즘" };
+
+	// [문제] a에 들어있는 원소(element)를 처음부터 끝까지 순회(iteration)하면서
+	// 값을 출력해 보라.
+	for (auto i = a.begin(); i != a.end(); ++i) {
+		std::cout << *i << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 805
+저장 시간 :: Mon Apr  4 10:55:06 2022
+
+// ============================================================================
+// 2022. 4. 4 월23							월23수34 (5주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <array>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	//관찰 = true;
+
+	std::array<STRING, 3> a{ "컨테이너", "반복자", "알고리즘" };
+
+	*a.begin() = "컨컨테이너";
+
+	// [문제] a에 들어있는 원소(element)를 처음부터 끝까지 순회(iteration)하면서
+	// 값을 출력해 보라.
+	for (auto i = a.begin(); i != a.end(); ++i) {
+		std::cout << *i << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 808
+저장 시간 :: Mon Apr  4 10:56:17 2022
+
+// ============================================================================
+// 2022. 4. 4 월23							월23수34 (5주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <array>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	//관찰 = true;
+
+	std::array<STRING, 3> a{ "컨테이너", "반복자", "알고리즘" };
+
+	// [문제] a에 들어있는 원소(element)를 처음부터 끝까지 순회(iteration)하면서
+	// 값을 출력해 보라.
+	for (std::array<STRING, 3>::const_iterator i = a.cbegin(); i != a.end(); ++i) {
+		std::cout << *i << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 745
+저장 시간 :: Mon Apr  4 10:57:17 2022
+
+// ============================================================================
+// 2022. 4. 4 월23							월23수34 (5주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <array>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	//관찰 = true;
+
+	std::array<STRING, 3> a{ "컨테이너", "반복자", "알고리즘" };
+
+	// [문제] a에 들어있는 원소(element)를 처음부터 끝까지 순회(iteration)하면서
+	// 값을 출력해 보라.
+	
+	for (STRING s : a)
+		std::cout << s << std::endl;
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 790
+저장 시간 :: Mon Apr  4 11:00:12 2022
+
+// ============================================================================
+// 2022. 4. 4 월23							월23수34 (5주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <array>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	관찰 = true;
+
+	std::array<STRING, 3> a{ "컨테이너", "반복자", "알고리즘" };
+
+	// [문제] a에 들어있는 원소(element)를 처음부터 끝까지 순회(iteration)하면서
+	// 값을 출력해 보라.
+	
+	// 레퍼런스로 불필요한 복사를 막는다.
+	for (const STRING& s : a)
+		std::cout << s << std::endl;
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 787
+저장 시간 :: Mon Apr  4 11:10:52 2022
+
+// ============================================================================
+// 2022. 4. 4 월23							월23수34 (5주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <array>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	관찰 = true;
+
+	std::array<STRING, 3> a{ "컨테이너", "반복자", "알고리즘" };
+
+	// [문제] a에 들어있는 원소(element)를 역방향으로 순회(iteration)하면서
+	// 값을 출력해 보라.
+	
+	// adaptor
+	for (auto i = a.crbegin(); i != a.crend(); ++i) {
+		std::cout << *i << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 839
+저장 시간 :: Mon Apr  4 11:29:42 2022
+
+// ============================================================================
+// 2022. 4. 4 월23							월23수34 (5주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	관찰 = true;
+
+	// [문제] array를 길이 오름차순으로 정렬하고 결과를 출력하라.
+
+
+	std::array<STRING, 3> a{ "12345", "33", "456456456456" };
+
+	std::sort(a.begin(), a.end(), [](STRING a, STRING b) {
+		return a.length() < b.length();
+		});
+
+	for (const STRING& s : a) {
+		std::cout << s << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 851
+저장 시간 :: Mon Apr  4 11:35:03 2022
+
+// ============================================================================
+// 2022. 4. 4 월23							월23수34 (5주 1일)
+//
+// 자원을 관리하는 클래스 - STRING - 컨테이너, 반복자, 알고리즘
+// ============================================================================
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	관찰 = true;
+
+	// [문제] array를 길이 오름차순으로 정렬하고 결과를 출력하라.
+
+	std::array<STRING, 3> a{ "12345", "33", "456456456456" };
+
+	std::sort(a.begin(), a.end(), [](const STRING& a, const STRING& b) {
+		return a.length() < b.length();
+		});
+
+	for (const STRING& s : a) {
+		std::cout << s << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 999
+저장 시간 :: Mon Apr  4 12:20:07 2022
+
+// ============================================================================
+// 2022. 4. 4 월23							월23수34 (5주 1일)
+//
+// 컨테이너 - 다른 객체를 저장하는 객체
+// Sequence Container
+//		- array		유일하게 크기가 컴파일 타임에 결정되어야
+//		- vector	dynamic array
+// 
+// 중간고사 예정 - 4/27
+// ============================================================================
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	관찰 = true;
+
+	// [문제] 키보드에서 입력하는 모든 단어를 받아라.
+	// 오름차순으로 정렬한다.
+	// 결과를 출력한다.
+
+	std::vector<std::string> v;
+	std::string str;
+	while (std::cin >> str) { v.push_back(str); }
+	std::sort(v.begin(), v.end());
+	for (const std::string& s : v) {
+		std::cout << s << " ";
+	}
+	std::cout << std::endl;
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 909
+저장 시간 :: Wed Apr  6 12:10:50 2022
+
+// ============================================================================
+// 2022. 4. 6 수34							월23수34 (5주 2일)
+//
+// 컨테이너 - 다른 객체를 저장하는 객체
+// Sequence Container - 원소의 순서를 임의로 지정할 수 있다.
+//		- array		유일하게 크기가 컴파일 타임에 결정되어야
+//		- vector	dynamic array (실행 시간에 크기가 바뀌는 배열)
+// 
+// 중간고사 예정 - 4/27
+// ============================================================================
+#include <iostream>
+#include <vector>
+#include <string>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	std::vector<int> v1;
+	std::vector<int> v2;
+
+	// vector<int>가 제공하는 자료형 - std::vector<int>::value_type
+	// v가 제공하는 함수 멤버 - v.push_back();
+	// 컨테이너간에 적용되는 연산 - v2 = v1;
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 872
+저장 시간 :: Wed Apr  6 12:12:08 2022
+
+// ============================================================================
+// 2022. 4. 6 수34							월23수34 (5주 2일)
+//
+// 컨테이너 - 다른 객체를 저장하는 객체
+// Sequence Container - 원소의 순서를 임의로 지정할 수 있다.
+//		- array		유일하게 크기가 컴파일 타임에 결정되어야
+//		- vector	dynamic array (실행 시간에 크기가 바뀌는 배열)
+// 
+// 중간고사 예정 - 4/27
+// ============================================================================
+#include <iostream>
+#include <vector>
+#include <string>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	std::vector<int> v;
+
+	std::cout << "현재 원소 수 - " << v.size() << std::endl;
+	std::cout << "v가 저장할 수 있는 최대 원소 수 - " << v.max_size() << std::endl;
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201/*_*/STL.cpp
+파일 이름 :: 202201_STL.cpp
+파일 크기 :: 859
+저장 시간 :: Wed Apr  6 12:14:59 2022
+
+// ============================================================================
+// 2022. 4. 6 수34							월23수34 (5주 2일)
+//
+// 컨테이너 - 다른 객체를 저장하는 객체
+// Sequence Container - 원소의 순서를 임의로 지정할 수 있다.
+//		- array		유일하게 크기가 컴파일 타임에 결정되어야
+//		- vector	dynamic array (실행 시간에 크기가 바뀌는 배열)
+// 
+// 중간고사 예정 - 4/27
+// ============================================================================
+#include <iostream>
+#include <vector>
+#include <string>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	std::vector<int> v;
+
+	std::cout << "현재 원소 수 - " << v.size() << std::endl;
+	std::cout << "벡터 v의 메모리 크기 - " << sizeof(v) << std::endl;
+	
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1046
+저장 시간 :: Wed Apr  6 12:43:51 2022
+
+// ============================================================================
+// 2022. 4. 6 수34							월23수34 (5주 2일)
+//
+// 컨테이너 - 다른 객체를 저장하는 객체
+// Sequence Container - 원소의 순서를 임의로 지정할 수 있다.
+//		- array		유일하게 크기가 컴파일 타임에 결정되어야
+//		- vector	dynamic array (실행 시간에 크기가 바뀌는 배열)
+// 
+// 중간고사 예정 - 4/27
+// ============================================================================
+#include <iostream>
+#include <vector>
+#include <string>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	std::vector<int> v { 1, 2, 3 };
+	v.capacity();
+
+	// [문제] vector의 메모리가 확장되는 모습을 관찰하고 싶다.
+	// - 원소를 하나씩 추가하면서 벡터가 관리하는 메모리의 크기를 관찰
+
+	for (int i = 4; i < 100; ++i) {
+		v.push_back(i);
+		std::cout << "현재 원소 수 - " << v.size() << ", 벡터의 용량 - " << v.capacity() << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1061
+저장 시간 :: Wed Apr  6 13:02:51 2022
+
+// ============================================================================
+// 2022. 4. 6 수34							월23수34 (5주 2일)
+//
+// 컨테이너 - 다른 객체를 저장하는 객체
+// Sequence Container - 원소의 순서를 임의로 지정할 수 있다.
+//		- array		유일하게 크기가 컴파일 타임에 결정되어야
+//		- vector	dynamic array (실행 시간에 크기가 바뀌는 배열)
+// 
+// 중간고사 예정 - 4/27
+// ============================================================================
+#include <iostream>
+#include <vector>
+#include <string>
+#include <thread>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	// [문제] 키보드에서 int를 입력받아 합계와 평균을 구하자 !
+
+	int input;
+	long long sum = 0;
+	std::vector<int> datas;
+	while (std::cin >> input) {
+		datas.push_back(input);
+	}
+	for (int data : datas) {
+		sum += data;
+	}
+
+	std::cout << "합계 - " << sum << std::endl;
+	std::cout << "평균 - " << (double)sum / datas.size();
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1061
+저장 시간 :: Wed Apr  6 13:03:10 2022
+
+// ============================================================================
+// 2022. 4. 6 수34							월23수34 (5주 2일)
+//
+// 컨테이너 - 다른 객체를 저장하는 객체
+// Sequence Container - 원소의 순서를 임의로 지정할 수 있다.
+//		- array		유일하게 크기가 컴파일 타임에 결정되어야
+//		- vector	dynamic array (실행 시간에 크기가 바뀌는 배열)
+// 
+// 중간고사 예정 - 4/27
+// ============================================================================
+#include <iostream>
+#include <vector>
+#include <string>
+#include <thread>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	// [문제] 키보드에서 int를 입력받아 합계와 평균을 구하자 !
+
+	int input;
+	long long sum = 0;
+	std::vector<int> datas;
+	while (std::cin >> input) {
+		datas.push_back(input);
+	}
+	for (int data : datas) {
+		sum += data;
+	}
+
+	std::cout << "합계 - " << sum << std::endl;
+	std::cout << "평균 - " << (double)sum / datas.size();
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 753
+저장 시간 :: Wed Apr  6 13:05:30 2022
+
+// ============================================================================
+// 2022. 4. 6 수34							월23수34 (5주 2일)
+//
+// 컨테이너 - 다른 객체를 저장하는 객체
+// Sequence Container - 원소의 순서를 임의로 지정할 수 있다.
+//		- array		유일하게 크기가 컴파일 타임에 결정되어야
+//		- vector	dynamic array (실행 시간에 크기가 바뀌는 배열)
+// 
+// 중간고사 예정 - 4/27
+// ============================================================================
+#include <iostream>
+#include <vector>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	관찰 = true;
+	std::vector<STRING> v{ "진짜 벡터를 알아보자"};
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 803
+저장 시간 :: Mon Apr 11 11:25:12 2022
+
+// ============================================================================
+// 2022. 4. 11 월23							월23수34 (6주 1일)
+//
+// 컨테이너 - 다른 객체를 저장하는 객체
+// Sequence Container - 원소의 순서를 임의로 지정할 수 있다.
+//		- array		유일하게 크기가 컴파일 타임에 결정되어야
+//		- vector	dynamic array (실행 시간에 크기가 바뀌는 배열)
+// 
+// 중간고사 - 4/20 (7주 2일)
+// ============================================================================
+#include <iostream>
+#include <vector>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	관찰 = true;
+
+	std::vector<STRING> v;
+	v.reserve(2);
+
+	v.push_back("333");
+	v.emplace_back("55555");
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1214
+저장 시간 :: Mon Apr 11 11:46:40 2022
+
+// ============================================================================
+// 2022. 4. 11 월23							월23수34 (6주 1일)
+//
+// 컨테이너 - 다른 객체를 저장하는 객체
+// Sequence Container - 원소의 순서를 임의로 지정할 수 있다.
+//		- array		유일하게 크기가 컴파일 타임에 결정되어야
+//		- vector	dynamic array (실행 시간에 크기가 바뀌는 배열)
+// 
+// STRING 클래스 이동지원 - 자원을 관리하는 클래스는 이동문법을 지원해야 함
+//		내가 사용하는 것이 아니라 컨테이너/알고리즘에서 사용
+// 
+// 클래스의 멤버 변수가 private이 아니라면 ???
+// 
+// 중간고사 - 4/20 (7주 2일)
+// ============================================================================
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	std::vector<STRING> v{"1", "333", "55555", "22", "4444"};
+
+	// [문제] 길이 오름차순 정렬 후 출력.
+	관찰 = true;
+	std::sort(v.begin(), v.end(), [](const STRING& a, const STRING& b) {return a.length() < b.length(); });
+	관찰 = false;
+
+	for (const auto& s : v) {
+		std::cout << s << std::endl;
+	}
+
+	save("202201_STL.cpp");
+}
+// ============================================================================파일 이름 :: 202201_STL.cpp
+파일 크기 :: 1186
+저장 시간 :: Mon Apr 11 12:04:00 2022
+
+// ============================================================================
+// 2022. 4. 11 월23							월23수34 (6주 1일)
+//
+// 컨테이너 - 다른 객체를 저장하는 객체
+// Sequence Container - 원소의 순서를 임의로 지정할 수 있다.
+//		- array		유일하게 크기가 컴파일 타임에 결정되어야
+//		- vector	dynamic array (실행 시간에 크기가 바뀌는 배열)
+// 
+// STRING 클래스 이동지원 - 자원을 관리하는 클래스는 이동문법을 지원해야 함
+//		내가 사용하는 것이 아니라 컨테이너/알고리즘에서 사용
+// 
+// 클래스의 멤버 변수가 private이 아니라면 ???
+// 
+// 중간고사 - 4/20 (7주 2일)
+// ============================================================================
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "STRING.h"
+#include "save.h"
+
+extern bool 관찰;
+
+int main()
+{
+	std::vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	// [문제] 짝수를 제거하고 출력하라.
+
+	auto p = std::remove_if(v.begin(), v.end(), [](int n) { return n%2 == 0; });
+	v.erase(p, v.end());
+
+	for (int n : v) {
+		std::cout << n << " ";
+	}
+	std::cout << std::endl;
+
+	save("202201_STL.cpp");
+}
+// ============================================================================
