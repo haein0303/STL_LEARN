@@ -29,12 +29,12 @@ extern bool 관찰;
 
 
 int main() {
-	save("main.cpp");
+	//save("main.cpp");
 	//[문제]
 	// 소스.cpp 파일의 단어를 deque<STRING>에 저장하라.
 	// 길이 오름차순으로 정렬하라
 	// 정렬된 결과를 출력하라
-
+	관찰 = true;
 	ifstream in{ "main.cpp" };
 	deque<string> d{};
 	string s;
@@ -50,7 +50,9 @@ int main() {
 		cout << a << endl;
 	}
 	
-	
+	STRING a{ "asdasd" };
+	STRING b;
+	b = std::move(a);
 
 
 
