@@ -1,0 +1,15 @@
+벡터의 문제
+반복자 무효화 문제
+invalidation
+
+deque는 반복자가 무효화 되지 않는다
+
+istream_iterator<stinrg>{},{}
+인풋스트림 반복자<자료형>{시작},{끝}
+
+
+STL contiguous containers - T[], array<T,N>, vector<T>, string
+
+find 알고리즘
+
+-list 

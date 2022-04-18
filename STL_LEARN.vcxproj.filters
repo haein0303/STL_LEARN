@@ -82,5 +82,8 @@
     <Text Include="220413.txt">
       <Filter>메모</Filter>
     </Text>
+    <Text Include="220418.txt">
+      <Filter>메모</Filter>
+    </Text>
   </ItemGroup>
 </Project>

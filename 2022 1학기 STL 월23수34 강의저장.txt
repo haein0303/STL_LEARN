@@ -8983,3 +8983,1625 @@ int main() {
 
 
 }
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 984
+저장 시간 : 2022-04-18 10:57:35 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+// 컨테이너 - 다른객체를 저장하는 객체
+// sequence Container
+//   - array    유일하게 크기가 컴파일 타임에 결정
+//   - vector   dynamic array 
+// ============================================================================
+
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+extern bool 관찰;
+
+int main() {
+	save("main.cpp");
+
+	관찰 = true;
+	ifstream in{ "main.cpp" };
+	string str;
+	deque <string> d;
+
+
+	while (in >> str) {
+		d.push_back(str);
+	}
+
+	cout << "모두 : " << d.size() << "를 읽었다" << endl;
+
+	sort(d.begin(), d.end(), [](const string& a, const string& b) {
+		return a > b;
+		});
+
+	for (const string& s : d) {
+		cout << s << endl;
+	}
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 812
+저장 시간 : 2022-04-18 10:58:31 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+// 컨테이너 - 다른객체를 저장하는 객체
+// sequence Container
+//   - array    유일하게 크기가 컴파일 타임에 결정
+//   - vector   dynamic array 
+// ============================================================================
+
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+extern bool 관찰;
+
+int main() {
+	save("main.cpp");
+
+	관찰 = true;
+	ifstream in{ "main.cpp" };
+	string str;
+
+	for (int i = 0; i < 10; ++i) {
+		if (!(in >> str)) {
+			break;
+		};
+		cout << str << endl;
+	}
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 844
+저장 시간 : 2022-04-18 11:01:16 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+extern bool 관찰;
+
+int main() {
+	save("main.cpp");
+
+	관찰 = true;
+	ifstream in{ "main.cpp" };
+	string str;
+	deque <string> d;
+
+
+	while (in >> str) {
+		d.push_back(str);
+	}
+
+	cout << "모두 : " << d.size() << "를 읽었다" << endl;
+
+	sort(d.begin(), d.end(), [](const string& a, const string& b) {
+		return a > b;
+		});
+
+	for (const string& s : d) {
+		cout << s << endl;
+	}
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 733
+저장 시간 : 2022-04-18 11:06:32 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "main.cpp" };
+	
+	deque<string> d{ istream_iterator<string>{in},{} };
+
+	sort(d.begin(), d.end(), [](const string& a, const string& b) {
+		return a < b;
+		});
+
+	copy(d.begin(), d.end(), ostream_iterator<string>{ cout, "\n"});
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 737
+저장 시간 : 2022-04-18 11:06:44 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "main.cpp" };
+	
+	deque<string> d{ istream_iterator<string>{in},{} };
+
+	sort(d.begin(), d.end(), [](const string& a, const string& b) {
+		return a < b;
+		});
+
+	copy(d.begin(), d.end(), ostream_iterator<string>{ cout, "\n"});
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 737
+저장 시간 : 2022-04-18 11:08:54 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	deque<string> d{ istream_iterator<string>{in},{} };
+
+	sort(d.begin(), d.end(), [](const string& a, const string& b) {
+		return a < b;
+		});
+
+	copy(d.begin(), d.end(), ostream_iterator<string>{ cout, "\n"});
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 737
+저장 시간 : 2022-04-18 11:11:15 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	deque<string> d{ istream_iterator<string>{in},{} };
+
+	sort(d.begin(), d.end(), [](const string& a, const string& b) {
+		return a > b;
+		});
+
+	copy(d.begin(), d.end(), ostream_iterator<string>{ cout, "\n"});
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 891
+저장 시간 : 2022-04-18 11:14:35 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	deque<string> d{ istream_iterator<string>{in},{} };
+
+	sort(d.begin(), d.end(), [](const string& a, const string& b) {
+		return a > b;
+		});
+
+	//각 단어를 오름차순(ascending order) 정렬
+
+	for (int i = 0; i < d.size(); ++i) {
+		sort(d[i].begin(), d[i].end());
+	}
+
+
+	copy(d.begin(), d.end(), ostream_iterator<string>{ cout, "\n"});
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 778
+저장 시간 : 2022-04-18 11:28:00 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	deque<string> d;
+	string str;
+	
+
+	while (in >> str) {
+		d.push_back(str);
+	}
+	//[문제] library는 세 번째 단어이다. space는 몇 번째 단어인가?
+
+	auto p = find(d.begin(), d.end(), "space"s);
+
+	cout << p._Getcont() << endl;
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 882
+저장 시간 : 2022-04-18 11:38:14 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	deque<string> d;
+	string str;
+	
+
+	while (in >> str) {
+		d.push_back(str);
+	}
+	//[문제] library는 세 번째 단어이다. space는 몇 번째 단어인가?
+
+	auto p = find(d.begin(), d.end(), string{ "space" });
+
+	if (p == d.end()) {
+		cout << "없다네에" << endl;
+	}
+	else {
+		cout << p - d.begin() + 1 << "번째 단어라네" << endl;
+	}
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 884
+저장 시간 : 2022-04-18 11:38:27 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	deque<string> d;
+	string str;
+	
+
+	while (in >> str) {
+		d.push_back(str);
+	}
+	//[문제] library는 세 번째 단어이다. space는 몇 번째 단어인가?
+
+	auto p = find(d.begin(), d.end(), string{ "library" });
+
+	if (p == d.end()) {
+		cout << "없다네에" << endl;
+	}
+	else {
+		cout << p - d.begin() + 1 << "번째 단어라네" << endl;
+	}
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 693
+저장 시간 : 2022-04-18 11:44:16 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> d;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		d.push_back(str);
+	}
+
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 758
+저장 시간 : 2022-04-18 11:47:21 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+	for (const string& s : cont) {
+		cout << s << endl;
+	}
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1049
+저장 시간 : 2022-04-18 11:56:52 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+	for (const string& s : cont) {
+		
+		cout << s << endl;
+	}
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	while (true) {
+		if (beg == p) {
+			break;
+		}
+		else {
+			++step;
+			++beg;
+		}
+		if (beg == cont.end()) {
+			break;
+		}
+	}
+	cout << step << "번째 단어라네" << endl;
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1078
+저장 시간 : 2022-04-18 11:57:31 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+	for (const string& s : cont) {
+		
+		cout << s << endl;
+	}
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	while (true) {
+		if (beg == p) {
+			break;
+		}
+		else {
+			++step;
+			++beg;
+		}
+		if (beg == cont.end()) {
+			break;
+		}
+	}
+	cout << distance(cont.begin(),p) + 1 << "번째 단어라네" << endl;
+
+	
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1055
+저장 시간 : 2022-04-18 12:02:03 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+	for (const string& s : cont) {
+		
+		cout << s << endl;
+	}
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	
+	cout << distance(cont.begin(),p) + 1 << "번째 단어라네" << endl;
+	//문제
+	//cont를 ascending order로 정렬하라
+
+	cont.sort([](const string& a, const string& b) {return a > b; });
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1053
+저장 시간 : 2022-04-18 12:02:16 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	
+	cout << distance(cont.begin(),p) + 1 << "번째 단어라네" << endl;
+	//문제
+	//cont를 ascending order로 정렬하라
+
+	cont.sort([](const string& a, const string& b) {return a > b; });
+	for (const string& s : cont) {
+
+		cout << s << endl;
+	}
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1155
+저장 시간 : 2022-04-18 12:02:58 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	
+	cout << "정렬전에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	//문제
+	//cont를 ascending order로 정렬하라
+
+	cont.sort([](const string& a, const string& b) {return a > b; });
+	
+	p = find(cont.begin(), cont.end(), string{ "space" });
+	cout << "정렬후에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1157
+저장 시간 : 2022-04-18 12:09:02 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	
+	cout << "정렬전에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	//문제
+	//cont를 ascending order로 정렬하라
+
+	cont.sort([](const string& a, const string& b) {return a > b; });
+	
+	p = find(cont.begin(), cont.end(), string{ "space" });
+	cout << "정렬후에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1298
+저장 시간 : 2022-04-18 12:11:24 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	
+	cout << "정렬전에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	//문제
+	//cont를 ascending order로 정렬하라
+	//정렬된 결과를 앞에서부터 10개만 화면 출력하라
+
+	cont.sort([](const string& a, const string& b) {return a > b; });
+	
+	p = find(cont.begin(), cont.end(), string{ "space" });
+	cout << "정렬후에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	
+	auto asd{ cont.begin() };
+	for (int i{}; i < 10; ++i) {
+		cout << *asd++ << endl;
+	}
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1296
+저장 시간 : 2022-04-18 12:11:57 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	
+	cout << "정렬전에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	//문제
+	//cont를 ascending order로 정렬하라
+	//정렬된 결과를 앞에서부터 10개만 화면 출력하라
+
+	cont.sort([](const string& a, const string& b) {return a > b; });
+	
+	p = find(cont.begin(), cont.end(), string{ "space" });
+	cout << "정렬후에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	
+	auto asd{ cont.end() };
+	for (int i{}; i < 10; ++i) {
+		cout << *asd-- << endl;
+	}
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1305
+저장 시간 : 2022-04-18 12:13:46 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	
+	cout << "정렬전에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	//문제
+	//cont를 ascending order로 정렬하라
+	//정렬된 결과를 앞에서부터 10개만 화면 출력하라
+
+	cont.sort([](const string& a, const string& b) {return a > b; });
+	
+	p = find(cont.begin(), cont.end(), string{ "space" });
+	cout << "정렬후에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	
+	auto asd{ cont.end() };
+	--asd;
+	for (int i{}; i < 10; ++i) {
+		cout << *asd-- << endl;
+	}
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1307
+저장 시간 : 2022-04-18 12:14:09 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	
+	cout << "정렬전에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	//문제
+	//cont를 ascending order로 정렬하라
+	//정렬된 결과를 앞에서부터 10개만 화면 출력하라
+
+	cont.sort([](const string& a, const string& b) {return a > b; });
+	
+	p = find(cont.begin(), cont.end(), string{ "space" });
+	cout << "정렬후에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	
+	auto asd{ cont.rbegin()};
+	--asd;
+	for (int i{}; i < 10; ++i) {
+		cout << *asd-- << endl;
+	}
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1307
+저장 시간 : 2022-04-18 12:14:19 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	
+	cout << "정렬전에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	//문제
+	//cont를 ascending order로 정렬하라
+	//정렬된 결과를 앞에서부터 10개만 화면 출력하라
+
+	cont.sort([](const string& a, const string& b) {return a > b; });
+	
+	p = find(cont.begin(), cont.end(), string{ "space" });
+	cout << "정렬후에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	
+	auto asd{ cont.rbegin()};
+	--asd;
+	for (int i{}; i < 10; ++i) {
+		cout << *asd++ << endl;
+	}
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1301
+저장 시간 : 2022-04-18 12:14:29 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	
+	cout << "정렬전에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	//문제
+	//cont를 ascending order로 정렬하라
+	//정렬된 결과를 앞에서부터 10개만 화면 출력하라
+
+	cont.sort([](const string& a, const string& b) {return a > b; });
+	
+	p = find(cont.begin(), cont.end(), string{ "space" });
+	cout << "정렬후에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	
+	auto asd{ cont.rbegin()};
+	
+	for (int i{}; i < 10; ++i) {
+		cout << *asd++ << endl;
+	}
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1327
+저장 시간 : 2022-04-18 12:18:28 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	
+	cout << "정렬전에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	//문제
+	//cont를 ascending order로 정렬하라
+	//정렬된 결과를 앞에서부터 10개만 화면 출력하라
+
+	cont.sort([](const string& a, const string& b) {return a > b; });
+	
+	p = find(cont.begin(), cont.end(), string{ "space" });
+	cout << "정렬후에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	
+	copy_if(cont.begin(), cont.end(), ostream_iterator<string>{cout}, [](const string& a) {
+		return a.size() == 5; });
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1332
+저장 시간 : 2022-04-18 12:18:59 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.4.18. 월23              월23수34                   
+// 
+//
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <list>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+
+using namespace std;
+
+//[문제] "연습.txt"를
+
+int main() {
+	save("main.cpp");
+
+	ifstream in{ "연습.txt" };
+	
+	list<string> cont;
+	string str;
+	
+	cout << "리스트의 크기 - " << sizeof(list<string>) << endl;
+
+	while (in >> str) {
+		cont.push_back(str);
+	}
+
+
+	auto p = find(cont.begin(), cont.end(), string{ "space" });
+	int step{};
+	auto beg = cont.begin();
+
+	
+	cout << "정렬전에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	//문제
+	//cont를 ascending order로 정렬하라
+	//정렬된 결과를 앞에서부터 10개만 화면 출력하라
+
+	cont.sort([](const string& a, const string& b) {return a > b; });
+	
+	p = find(cont.begin(), cont.end(), string{ "space" });
+	cout << "정렬후에는 " << distance(cont.begin(), p) + 1 << "번째 단어라네" << endl;
+	
+	copy_if(cont.begin(), cont.end(), ostream_iterator<string>{cout,"\n"}, [](const string& a) {
+		return a.size() == 5; });
+
+}
