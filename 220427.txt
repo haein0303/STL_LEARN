@@ -1,0 +1,10 @@
+C++ 20 concept / (나머지 3개) module, range, coroutine
+
+오늘 코딩해서 알아볼 내용
+반복자 종류 판정
+STRING의 반복자를 코딩
+iterator_traits<iter>::iterator_category << iter가 공식 카테고리에 등록되어있니? 반환값 == 타입
+
+모든 T*는 랜덤 억세스 반복자로 등록되어 있다.
+
+

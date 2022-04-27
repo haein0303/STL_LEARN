@@ -1,0 +1,11 @@
+forward list
+
+it is intended that forward_list have zero space or time overhead
+relative to a hand-written C-style singly linked list
+Features tha would conflict with tha goal have been omited.
+
+
+반복자란
+ - Iterators are a generalization of pointers
+ that allow a C++ program to work with different data structures
+ (for example, containersand ranges) in a uniform manner.
