@@ -8,8 +8,46 @@
 #pragma once
 
 #include <iostream>
+#include <compare> // C++20 spaceship operator(three-way comparator)
+
+
+//2022. 4. 27. STRING이 제공하는 반복자
+class STRING_iterator {
+	char* p;
+public:
+	STRING_iterator(char* p) : p{ p } {};
+	operator-(const STRING_iterator& rhs) const {
+		return p - rhs.p;
+	}
+
+	
+};
+
+//2022. 4. 27. STRING이 제공하는 역방향 반복자
+class STRING_reverse_iterator {
+private:
+	char* p;
+public:
+	STRING_reverse_iterator(char* p) : p{ p } {};
+	STRING_reverse_iterator& operator++() {
+		--p;
+		return *this;
+	}
+	char& operator*() const {
+		return *(p-1);
+	}
+	bool operator!=(const STRING_reverse_iterator& rhs) {
+		return p != rhs.p;
+	}
+	auto operator<=>(const STRING_reverse_iterator& rhs) const = default;
+};
 
 class STRING {
+public:
+	//2022. 4. 27.
+	using iterator = STRING_iterator; //포장하장
+	using reverse_iterator = STRING_reverse_iterator; //포장
+private:
 	char* p;							// 확보한 자원 주소
 	size_t num;							// 관리하는 바이트 수
 	int id;								// 생성 시 부여한 id
@@ -31,8 +69,30 @@ public:
 
 	STRING operator+( const STRING& rhs ) const;
 
+	//22.04.27 begin()/end() 제공
+	iterator begin() const {
+		return iterator{ p };
+	}
+	iterator end() const {
+		return iterator{ p + num };
+	}
+
+
+
+
+	reverse_iterator rbegin() const {
+		return reverse_iterator{ p + num };
+	}
+	reverse_iterator rend() const {
+		return reverse_iterator{ p };
+	}
+
 	void print( const char* s ) const;
 
 	friend std::ostream& operator<<( std::ostream&, const STRING& );
+	
 	size_t getNum() const;
+
 };
+
+

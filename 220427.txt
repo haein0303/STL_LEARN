@@ -8,3 +8,31 @@ iterator_traits<iter>::iterator_category << iter가 공식 카테고리에 등록되어있니?
 모든 T*는 랜덤 억세스 반복자로 등록되어 있다.
 
 
+동일 동작
+	for (char c : str) {
+		cout << c ;
+	}
+	for (auto i = str.begin(); i != str.end(); ++i) {
+		cout << i;
+	}
+
+반복자 어뎁터
+ - 반복자 처럼 행동하는 듯이 보이지만 딴짓하는 애들
+
+ 1. 입출력 반복자
+ 2. 역방향 반복자
+ 3. 인써션 이터레이터
+
+ 반복자 최종 목표
+  - STRING이 sort에서 동작하는 것
+
+
+  #include <compare> // C++20 spaceship operator(three-way comparator)
+  auto operator<=>(const STRING_reverse_iterator& rhs) const = default;
+  자동보다는 사용자가 작성한 코드가 우선된다
+  구글에서 찾을꺼면 strong weak order 라고 검색하렴
+
+  반복자는 컨테이너가 제공하는 클래스이어야 한다
+
+
+
