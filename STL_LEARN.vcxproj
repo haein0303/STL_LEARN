@@ -167,6 +167,7 @@
     <Text Include="220418.txt" />
     <Text Include="220425.txt" />
     <Text Include="220427.txt" />
+    <Text Include="220502.txt" />
     <Text Include="LEE_2022 1학기 STL 월23수34 강의저장.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

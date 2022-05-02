@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------------
 
 #include <iostream>
+#include <string>
 #include "STRING.h"
 
 bool 관찰{ false };			// 관찰메시지를 보려면 -> true
@@ -118,9 +119,19 @@ size_t STRING::getNum() const{
 	return num;
 }
 
-std::ostream& operator<<( std::ostream& os, const STRING& s )
-{
+std::ostream& operator<<( std::ostream& os, const STRING& s ){
 	for (int i{}; i < s.num; ++i)
 		os << s.p[i];
 	return os;
-};
+}
+
+std::istream& operator>>(std::istream& is, STRING& s){
+	std::string str;
+	is >> str;
+	//s = str으로부터 STRING을 만들면 가능
+	//s(const char*)로 만들수 있음
+	//str을 const char*로 변신
+	s = STRING(str.c_str());
+	return is;
+}
+
