@@ -16,18 +16,12 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="사용안해">
+      <UniqueIdentifier>{f06efdd9-263f-466d-b600-ac907d0b5442}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="save.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="playground.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="source0307.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="source0314.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -35,6 +29,15 @@
     </ClCompile>
     <ClCompile Include="STRING.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="source0314.cpp">
+      <Filter>사용안해</Filter>
+    </ClCompile>
+    <ClCompile Include="source0307.cpp">
+      <Filter>사용안해</Filter>
+    </ClCompile>
+    <ClCompile Include="playground.cpp">
+      <Filter>사용안해</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -45,6 +48,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="STRING.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="my_Algorithm.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -92,6 +98,9 @@
       <Filter>메모</Filter>
     </Text>
     <Text Include="220502.txt">
+      <Filter>메모</Filter>
+    </Text>
+    <Text Include="220504.txt">
       <Filter>메모</Filter>
     </Text>
   </ItemGroup>

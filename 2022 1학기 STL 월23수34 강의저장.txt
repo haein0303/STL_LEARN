@@ -12613,3 +12613,467 @@ int main() {
 
 	save("main.cpp");
 }
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1015
+저장 시간 : 2022-05-04 12:55:36 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.2.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+bool operator< (const STRING& lhs, const STRING& rhs) {
+	//사전식비교 알고리즘
+	return lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
+	//return string(lhs.begin(),lhs.end()) < string(rhs.begin(),rhs.end());
+}
+
+
+
+
+int main() {
+	ifstream in{ "main.cpp" };
+	
+	STRING str;
+	vector<char> v;
+	v.reserve(100);
+	//copy(키보드입력, 입력끝, 출력);
+	my_copy(istream_iterator<char>{cin}, {}, v.begin());
+
+	char* p = v.data();
+
+	for (int i = 0; i < 100; ++i) {
+		cout << p[i];
+	}
+
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1020
+저장 시간 : 2022-05-04 12:56:30 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.2.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+bool operator< (const STRING& lhs, const STRING& rhs) {
+	//사전식비교 알고리즘
+	return lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
+	//return string(lhs.begin(),lhs.end()) < string(rhs.begin(),rhs.end());
+}
+
+
+
+
+int main() {
+	ifstream in{ "main.cpp" };
+	
+	STRING str;
+	vector<char> v;
+	v.reserve(100);
+	//copy(키보드입력, 입력끝, 출력);
+	my_copy(istream_iterator<char>{cin}, {}, v.begin());
+
+	char* p = v.data();
+
+	for (int i = 0; i < v.size(); ++i) {
+		cout << p[i];
+	}
+
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1003
+저장 시간 : 2022-05-04 12:58:52 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.2.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+bool operator< (const STRING& lhs, const STRING& rhs) {
+	//사전식비교 알고리즘
+	return lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
+	//return string(lhs.begin(),lhs.end()) < string(rhs.begin(),rhs.end());
+}
+
+
+
+
+int main() {
+	ifstream in{ "main.cpp" };
+	
+	STRING str;
+	vector<char> v;
+	v.reserve(100);
+	//copy(키보드입력, 입력끝, 출력);
+	my_copy(istream_iterator<char>{cin}, {}, back_inserter(v));
+
+	for (int i = 0; i < v.size(); ++i) {
+		cout << v[i];
+	}
+
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 734
+저장 시간 : 2022-05-04 13:06:17 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.4.        수34              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+void print(int a[10]) {
+	for (int i = 0; i < 10; ++i) {
+		cout << a[i] << endl;
+	}
+}
+
+
+
+int main() {
+	int a[10]{ 1,2,3,4,5 };
+	//[문제]함수 print는 a를 인자로 받아서 값을 전부 출력한다.
+	//p를 선언하고 정의하라
+
+	print(a);
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 733
+저장 시간 : 2022-05-04 13:07:43 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.4.        수34              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+void print(int a[10]) {
+	for (int i = 0; i < 10; ++i) {
+		cout << a[i] << endl;
+	}
+}
+
+
+
+int main() {
+	int a[9]{ 1,2,3,4,5 };
+	//[문제]함수 print는 a를 인자로 받아서 값을 전부 출력한다.
+	//p를 선언하고 정의하라
+
+	print(a);
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 733
+저장 시간 : 2022-05-04 13:08:02 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.4.        수34              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+void print(int a[10]) {
+	for (int i = 0; i < 10; ++i) {
+		cout << a[i] << endl;
+	}
+}
+
+
+
+int main() {
+	int a[5]{ 1,2,3,4,5 };
+	//[문제]함수 print는 a를 인자로 받아서 값을 전부 출력한다.
+	//p를 선언하고 정의하라
+
+	print(a);
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 743
+저장 시간 : 2022-05-04 13:11:17 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.4.        수34              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+void print(vector<int> a) {
+	for (int i = 0; i < a.size(); ++i) {
+		cout << a[i] << endl;
+	}
+}
+
+
+
+int main() {
+	vector a{ 1,2,3,4,5 };
+	//[문제]함수 print는 a를 인자로 받아서 값을 전부 출력한다.
+	//p를 선언하고 정의하라
+
+	print(a);
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 802
+저장 시간 : 2022-05-04 13:15:12 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.4.        수34              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <span>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+void print(span<int> a) {
+	cout << "스팬 - 전체 메모리 : " << a.size_bytes() << endl;
+	for (int i = 0; i < a.size(); ++i) {
+		cout << a[i] << endl;
+	}
+	
+}
+
+
+
+int main() {
+	vector a{ 1,2,3,4,5 };
+	//[문제]함수 print는 a를 인자로 받아서 값을 전부 출력한다.
+	//p를 선언하고 정의하라
+
+	print(a);
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 799
+저장 시간 : 2022-05-04 13:15:54 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.4.        수34              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <span>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+void print(span<int> a) {
+	cout << "스팬 - 전체 메모리 : " << a.size_bytes() << endl;
+	for (int i = 0; i < a.size(); ++i) {
+		cout << a[i] << endl;
+	}
+	
+}
+
+
+
+int main() {
+	int a[]{1,2,3,4,5};
+	//[문제]함수 print는 a를 인자로 받아서 값을 전부 출력한다.
+	//p를 선언하고 정의하라
+
+	print(a);
+
+	save("main.cpp");
+}

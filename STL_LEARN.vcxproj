@@ -116,6 +116,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,6 +151,7 @@
     <ClCompile Include="STRING.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="my_Algorithm.h" />
     <ClInclude Include="playground.h" />
     <ClInclude Include="save.h" />
     <ClInclude Include="STRING.h" />
@@ -168,6 +171,7 @@
     <Text Include="220425.txt" />
     <Text Include="220427.txt" />
     <Text Include="220502.txt" />
+    <Text Include="220504.txt" />
     <Text Include="LEE_2022 1학기 STL 월23수34 강의저장.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

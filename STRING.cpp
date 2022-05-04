@@ -111,8 +111,9 @@ void STRING::print( const char* s ) const
 	if (num != 0) {
 		std::cout << " 갯수:" << num << ", 주소:" << (void*)p << std::endl;
 	}
-	else
+	else {
 		std::cout << " 없음" << std::endl;
+	}
 }
 
 size_t STRING::getNum() const{
@@ -131,7 +132,7 @@ std::istream& operator>>(std::istream& is, STRING& s){
 	//s = str으로부터 STRING을 만들면 가능
 	//s(const char*)로 만들수 있음
 	//str을 const char*로 변신
-	s = STRING(str.c_str());
+	s = str.c_str();
 	return is;
 }
 

@@ -11,6 +11,7 @@
 #include <compare> // C++20 spaceship operator(three-way comparator)
 
 
+
 //2022. 4. 27. STRING이 제공하는 반복자
 class STRING_iterator {
 public:
@@ -131,6 +132,14 @@ public:
 	friend std::istream& operator>>(std::istream&, const STRING&);
 	size_t getNum() const;
 
+
+	
 };
+
+//bool operator< (const STRING& lhs, const STRING& rhs) {
+//	//사전식비교 알고리즘
+//	return std::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
+//	//return string(lhs.begin(),lhs.end()) < string(rhs.begin(),rhs.end());
+//}
 
 

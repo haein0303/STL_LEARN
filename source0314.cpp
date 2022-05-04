@@ -95,7 +95,7 @@ void sizeint() {
 //가장 큰값을 화면에 출력하라.
 void findandmaxsize() {
 	std::ifstream in{ "int1000개size.txt",std::ios::binary };
-	int n;
+	int n{};
 	int max{};
 	for (int i{}; i < 1001; ++i) {
 		in.read((char*)&n, sizeof(n));
@@ -105,7 +105,7 @@ void findandmaxsize() {
 	}
 	std::cout << max << std::endl;
 
-	std::array<int,4000> num;
+	std::array<int, 4000> num{};
 	int maxn{};
 	in.read((char*)num.data(), sizeof(num) * 1000);
 	for (int num : num) {
