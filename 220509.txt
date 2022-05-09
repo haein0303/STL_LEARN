@@ -1,0 +1,9 @@
+Associative container
+ set - 원소를 항상 정렬상태로 유지, 찾기, 제거, 추가( O (log N)) 
+     - set의 주요동작, 맴버 contains
+     - 내가 만든 type을 set에 넣으려면?
+
+
+메인 버전
+int main(){}
+int main(int, char*[]){}

@@ -9,37 +9,48 @@
 
 
 #include <iostream>
+#include <set>
+#include <random>
+#include <array>
 #include <vector>
-#include <algorithm>
-#include <span>
-#include <string>
 #include "save.h"
 #include "STRING.h"
 #include "my_Algorithm.h"
 
 using namespace std;
 
-void print(span<int> a) {
-	cout << "스팬 - 전체 메모리 : " << a.size_bytes() << endl;
-	for (int i = 0; i < a.size(); ++i) {
-		cout << a[i] << endl;
-	}
-	
-}
+default_random_engine re1;
+uniform_int_distribution<int> uidAlpha{ 'a','z' };
+uniform_int_distribution<int> uidNum{ 1,10000 };
 
-void print(span<char> a) {
-	cout << "스팬(char) - 전체 메모리 : " << a.size_bytes() << endl;
-	for (int i = 0; i < a.size(); ++i) {
-		cout << a[i] << endl;
+class Dog {
+	string name;//10글자 소문자
+	int num;    //1~10000사이
+public:
+	Dog() {
+		for (int i = 0; i < 10; ++i) {
+			name += uidAlpha(re1);
+			num = uidNum(re1);
+		}
 	}
+	void show()const {
+		cout << name << " - " << num << endl;
+	}
+};
 
-}
+array<Dog,1000> dogs;
 
 int main() {
 
-	STRING s{ "hello!span?" };
+	for (const Dog& dog : dogs) {
+		dog.show();
+	}
 
-	//print(span<char>(s.begin(), s.end());
+	set<Dog> s{ dogs.begin(),dogs.end() };
+
+	for (const Dog& dog : s) {
+		dog.show();
+	}
 
 	save("main.cpp");
 }
