@@ -1,7 +1,7 @@
 // ============================================================================
 //									STL
 // 
-//	2022.5.4.        수34              월23수34               8주 2일     
+//	2022.5.11.        수34              월23수34               8주 2일     
 // 
 //  
 // 
@@ -9,48 +9,37 @@
 
 
 #include <iostream>
-#include <set>
-#include <random>
-#include <array>
+#include <map>
 #include <vector>
+#include <string>
+#include <fstream>
 #include "save.h"
 #include "STRING.h"
 #include "my_Algorithm.h"
 
 using namespace std;
 
-default_random_engine re1;
-uniform_int_distribution<int> uidAlpha{ 'a','z' };
-uniform_int_distribution<int> uidNum{ 1,10000 };
-
-class Dog {
-	string name;//10글자 소문자
-	int num;    //1~10000사이
-public:
-	Dog() {
-		for (int i = 0; i < 10; ++i) {
-			name += uidAlpha(re1);
-			num = uidNum(re1);
-		}
-	}
-	void show()const {
-		cout << name << " - " << num << endl;
-	}
-};
-
-array<Dog,1000> dogs;
-
 int main() {
 
-	for (const Dog& dog : dogs) {
-		dog.show();
+//[문제] "main.cpp"의 소문자 갯수를 세서 출력하라.
+
+	//int alpha[26];
+	//
+	//char c = 'a';
+	//alpha['a' - 'a']++;
+
+	map<string, int> cim;
+
+	ifstream in{ "main.cpp" };
+	string tmp;
+	while (in>>tmp) {
+		cim[tmp]++;
 	}
 
-	set<Dog> s{ dogs.begin(),dogs.end() };
-
-	for (const Dog& dog : s) {
-		dog.show();
+	for (const auto& a : cim) {
+		cout << "[" << a.first << "] = " << a.second << endl;
 	}
+
 
 	save("main.cpp");
 }

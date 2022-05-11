@@ -4,6 +4,6 @@ Associative container
      - 내가 만든 type을 set에 넣으려면?
 
 
-메인 버전
+메인 버전 Only 2가지
 int main(){}
 int main(int, char*[]){}

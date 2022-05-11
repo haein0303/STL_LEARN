@@ -1,0 +1,21 @@
+contains
+
+set<Dog,less<Dog>=Default> 머시깽~
+
+정렬할때 찾는 것
+1. less<CLASS>
+2. operator < (CLASS, CLASS)
+   - CLASS.operator<(CLASS)
+   - operator<(CLASS, CLASS)
+
+   emplace < 생성도 코드가 알아서 함
+
+   set<Dog,정렬할수있는타입> s;
+   set<Dog, less<Dog> > s;
+
+   심각도	코드	설명	프로젝트	파일	줄	비표시 오류(Suppression) 상태
+오류	C3848	'const 정렬기준' 형식의 식에서 'bool 정렬기준::operator ()(const Dog &,const Dog &)'을(를) 호출하면 const-volatile 한정자가 손실됩니다.	STL_LEARN	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\include\xtree	1569	
+
+내가 만든 type을 set에 넣으려면? - 정렬타입을 알려줘야됨
+
+
