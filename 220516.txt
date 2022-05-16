@@ -1,0 +1,33 @@
+STL 
+Container
+  - sequential
+    : array
+    : vector
+    : deque
+    : forward list
+    : list
+  - associaltive
+    : set
+    : map
+    : multiset
+    : multimap
+  - unordered associative
+    : u/set
+    : u/map
+
+    range/view
+
+
+Iterator
+  - 
+
+Algorithm
+  - find
+  - copy-if
+
+  알고리즘이 획기적으로 변한 내용
+  C++ 20 : Range / Concept
+
+  unordered-set
+   - O(1)-> find, insert -> 테이블
+   데이터 -> 결정함수 -> hasher / 시간을 선택 공간을 희생

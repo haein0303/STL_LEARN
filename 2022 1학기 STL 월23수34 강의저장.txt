@@ -14809,3 +14809,1214 @@ int main() {
 
 	save("main.cpp");
 }
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 725
+저장 시간 : 2022-05-16 11:09:06 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	cout << v.size() << endl;
+
+
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 728
+저장 시간 : 2022-05-16 11:10:02 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+
+	cout << v.size() << endl;
+
+
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 850
+저장 시간 : 2022-05-16 11:13:20 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+
+	cout << v.size() << endl;
+
+	vector<string> novel;
+	string word;
+	while (in >> word) {
+		novel.push_back(word);
+	}
+	cout << novel.size() << endl;
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 889
+저장 시간 : 2022-05-16 11:13:59 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	ifstream in2{ "Frankenstein.txt" };
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+
+	cout << v.size() << endl;
+
+	vector<string> novel;
+	string word;
+	
+	while (in2 >> word) {
+		novel.push_back(word);
+	}
+	cout << novel.size() << endl;
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 989
+저장 시간 : 2022-05-16 11:19:05 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 소문자별로 갯수를 출력하라
+	map<char, int> count;
+	for (const auto& a : v) {
+		for (int i = 0; i < a.length(); ++i) {
+			if (tolower(a[i])) {
+				count[a[i]]++;
+			}
+		}
+	}
+
+	for (const auto& a : count) {
+		cout << "[" << a.first << "] = " << a.second << endl;
+	}
+	
+
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1016
+저장 시간 : 2022-05-16 11:20:08 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 소문자별로 갯수를 출력하라
+	map<char, int> count;
+	for (const auto& a : v) {
+		for (int i = 0; i < a.length(); ++i) {
+			if (tolower(a[i])) {
+				count[a[i]]++;
+			}
+		}
+	}
+
+	for (const auto& a : count) {
+		cout << "[" << a.first << "] = " << format("{:7}", a.second);
+	}
+	
+
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1024
+저장 시간 : 2022-05-16 11:20:39 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 소문자별로 갯수를 출력하라
+	map<char, int> count;
+	for (const auto& a : v) {
+		for (int i = 0; i < a.length(); ++i) {
+			if (tolower(a[i])) {
+				count[a[i]]++;
+			}
+		}
+	}
+
+	for (const auto& a : count) {
+		cout << "[" << a.first << "] = " << format("{:5}", a.second) << "  ";
+	}
+	
+
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1025
+저장 시간 : 2022-05-16 11:21:00 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 소문자별로 갯수를 출력하라
+	map<char, int> count;
+	for (const auto& a : v) {
+		for (int i = 0; i < a.length(); ++i) {
+			if (tolower(a[i])) {
+				count[a[i]]++;
+			}
+		}
+	}
+
+	for (const auto& a : count) {
+		cout << "[" << a.first << "] = " << format("{:10}", a.second) << "  ";
+	}
+	
+
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1027
+저장 시간 : 2022-05-16 11:24:40 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 소문자별로 갯수를 출력하라
+	map<char, int> count;
+	for (const auto& a : v) {
+		for (int i = 0; i < a.length(); ++i) {
+			if (tolower(a[i])) {
+				count[a[i]]++;
+			}
+		}
+	}
+
+	for (const auto& a : count) {
+		cout << "[" << a.first << "] = " << format("{:10}", a.second) << endl;
+	}
+
+	
+
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1027
+저장 시간 : 2022-05-16 11:33:12 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 소문자별로 갯수를 출력하라
+	map<char, int> count;
+	for (const auto& a : v) {
+		for (int i = 0; i < a.length(); ++i) {
+			if (islower(a[i])) {
+				count[a[i]]++;
+			}
+		}
+	}
+
+	for (const auto& a : count) {
+		cout << "[" << a.first << "] = " << format("{:10}", a.second) << endl;
+	}
+
+	
+
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1262
+저장 시간 : 2022-05-16 11:43:23 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 소문자별로 갯수를 출력하라
+	map<char, int> count;
+	for (const auto& a : v) {
+		for (int i = 0; i < a.length(); ++i) {
+			if (islower(a[i])) {
+				count[a[i]]++;
+			}
+		}
+	}
+	vector<pair<char, int>> sorting;
+	for (const auto& a : count) {
+		sorting.push_back(a);
+	}
+
+	sort(sorting.begin(), sorting.end(), [](const pair<char, int>& a, const pair<char, int>& b) {
+		return a.second > b.second;
+		});
+	
+	for (const auto& a : sorting) {
+		cout << "[" << a.first << "] = " << format("{:10}", a.second) << endl;
+	}
+
+	
+
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1235
+저장 시간 : 2022-05-16 11:50:30 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 소문자별로 갯수를 출력하라
+	map<char, int> count;
+	for (const auto& a : v) {
+		for (int i = 0; i < a.length(); ++i) {
+			if (islower(a[i])) {
+				count[a[i]]++;
+			}
+		}
+	}
+	vector<pair<char, int>> sorting{ count.begin(),count.end() };
+
+	sort(sorting.begin(), sorting.end(), [](const pair<char, int>& a, const pair<char, int>& b) {
+		return a.second > b.second;
+		});
+	
+	for (auto[문자, 개수] : sorting) { //바인딩
+		cout << "[" << 문자 << "] = " << format("{:10}", 개수) << endl;
+	}
+
+	
+
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1089
+저장 시간 : 2022-05-16 11:53:24 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 소문자별로 갯수를 출력하라
+	map<char, int> count;
+	for (const auto& a : v) {
+		for (int i = 0; i < a.length(); ++i) {
+			if (islower(a[i])) {
+				count[a[i]]++;
+			}
+		}
+	}
+	map<int, char> m;
+	for (auto [문자, 개수] : count) {
+		m.insert({ 개수,문자 });
+	}
+
+	for (auto [개수, 문자] : m) {
+		cout << "[" << 문자 << "] = " << 개수 << endl;
+	}
+	
+
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1102
+저장 시간 : 2022-05-16 11:54:16 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 소문자별로 갯수를 출력하라
+	map<char, int> count;
+	for (const auto& a : v) {
+		for (int i = 0; i < a.length(); ++i) {
+			if (islower(a[i])) {
+				count[a[i]]++;
+			}
+		}
+	}
+	map<int, char,greater<int>> m;
+	for (auto [문자, 개수] : count) {
+		m.insert({ 개수,문자 });
+	}
+
+	for (auto [개수, 문자] : m) {
+		cout << "[" << 문자 << "] = " << 개수 << endl;
+	}
+	
+
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1022
+저장 시간 : 2022-05-16 11:56:07 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 많이 출현한 단어 순으로 출력
+	map<string, int> count;
+	for (const string& a : v) {
+		count[a]++;
+	}
+	map<int, string,greater<int>> m;
+	for (auto [문자, 개수] : count) {
+		m.insert({ 개수,문자 });
+	}
+
+	for (auto [개수, 문자] : m) {
+		cout << "[" << 문자 << "] = " << 개수 << endl;
+	}
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1049
+저장 시간 : 2022-05-16 11:56:39 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 많이 출현한 단어 순으로 출력
+	map<string, int> count;
+	for (const string& a : v) {
+		count[a]++;
+	}
+	map<int, string,greater<int>> m;
+	for (auto [문자, 개수] : count) {
+		m.insert({ 개수,문자 });
+	}
+
+	for (auto [개수, 문자] : m) {
+		cout << "[" << format(":8",문자) << "] = " << format(":5", 개수) << endl;
+	}
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1049
+저장 시간 : 2022-05-16 11:56:44 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 많이 출현한 단어 순으로 출력
+	map<string, int> count;
+	for (const string& a : v) {
+		count[a]++;
+	}
+	map<int, string,greater<int>> m;
+	for (auto [문자, 개수] : count) {
+		m.insert({ 개수,문자 });
+	}
+
+	for (auto [개수, 문자] : m) {
+		cout << "[" << format(":8",문자) << "] = " << format(":5", 개수) << endl;
+	}
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1053
+저장 시간 : 2022-05-16 11:56:55 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 많이 출현한 단어 순으로 출력
+	map<string, int> count;
+	for (const string& a : v) {
+		count[a]++;
+	}
+	map<int, string,greater<int>> m;
+	for (auto [문자, 개수] : count) {
+		m.insert({ 개수,문자 });
+	}
+
+	for (auto [개수, 문자] : m) {
+		cout << "[" << format("{:8}",문자) << "] = " << format("{:5}", 개수) << endl;
+	}
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1055
+저장 시간 : 2022-05-16 11:58:12 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 많이 출현한 단어 순으로 출력
+	map<string, int> count;
+	for (const string& a : v) {
+		count[a]++;
+	}
+	map<int, string,greater<int>> m;
+	for (auto [문자, 개수] : count) {
+		m.insert({ 개수,문자 });
+	}
+
+	for (auto [개수, 문자] : m) {
+		cout << "[" << format("{:^15}",문자) << "] = " << format("{:5}", 개수) << endl;
+	}
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1057
+저장 시간 : 2022-05-16 12:13:09 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 많이 출현한 단어 순으로 출력
+	map<string, int> count;
+	for (string a : v) {
+		count[a]++;
+	}
+
+
+	multimap<int, string,greater<int>> m;
+	for (auto [문자, 개수] : count) {
+		m.insert({ 개수,문자 });
+	}
+
+	for (auto [개수, 문자] : m) {
+		cout << "[" << format("{:^15}",문자) << "] = " << format("{:5}", 개수) << endl;
+	}
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1057
+저장 시간 : 2022-05-16 12:13:57 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.16.        월23              월23수34               8주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <algorithm>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+//[문제] e-class에서 "frankenstein.txt"를 vector<string>에 읽어라
+	ifstream in{ "Frankenstein.txt" };
+	
+	vector<string> v{ istream_iterator<string>{in},{} };
+
+	//[문제] 많이 출현한 단어 순으로 출력
+	map<string, int> count;
+	for (string a : v) {
+		count[a]++;
+	}
+
+
+	multimap<int, string,greater<int>> m;
+	for (auto [문자, 개수] : count) {
+		m.insert({ 개수,문자 });
+	}
+
+	for (auto [개수, 문자] : m) {
+		cout << "[" << format("{:^20}",문자) << "] = " << format("{:5}", 개수) << endl;
+	}
+	
+
+	save("main.cpp");
+}
