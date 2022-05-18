@@ -11,7 +11,6 @@
 #include <compare> // C++20 spaceship operator(three-way comparator)
 
 
-
 //2022. 4. 27. STRING이 제공하는 반복자
 class STRING_iterator {
 public:
@@ -110,6 +109,10 @@ public:
 		return num < rhs.num;
 	}
 
+	//22.05.18 unordered_set이 요구하는 ==
+	/*bool operator== (const STRING& rhs)const {
+		return std::string(begin(), end()) == std::string(rhs.begin(), rhs.end());
+	}*/
 
 	//22.04.27 begin()/end() 제공
 	iterator begin() const {

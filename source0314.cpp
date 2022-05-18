@@ -33,9 +33,9 @@
 
 
 std::random_device rd;
-std::default_random_engine dre{rd()}; //엔진
+std::default_random_engine dre1{rd()}; //엔진
 //엔진은 용량이 크기때문에 전역으로 1회만 설정
-std::uniform_int_distribution<> uid; //분포
+std::uniform_int_distribution<> uid1; //분포
 
 
 //[문제] int의 최댓값을 화면에 출력하라
@@ -47,7 +47,7 @@ void saveNum() {
 	std::ofstream out{ "int1000개.txt", std::ios::out };
 
 	for (int i = 0; i < 1000; i++) {
-		out << uid(dre) << '\t';
+		out << uid(dre1) << '\t';
 	}
 
 	std::cout << "파일이 정상적으로 저장되었습니다" << std::endl;
@@ -81,7 +81,7 @@ void sizeint() {
 	std::ofstream out{ "int1000개size.txt" ,std::ios::binary };
 	int num{};
 	for (int i{ 1 }; i <= 1000; ++i) {
-		num = uid(dre);
+		num = uid(dre1);
 		out.write((const char*)&num, sizeof(int));
 	}	
 	

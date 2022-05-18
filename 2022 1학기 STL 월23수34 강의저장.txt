@@ -16020,3 +16020,2537 @@ int main() {
 
 	save("main.cpp");
 }
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 564
+저장 시간 : 2022-05-18 11:34:46 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+	unordered_set<int> us{ 1,2,3,4 };
+
+	for (int n : us) {
+		cout << n << "  ";
+	}
+	cout << endl;
+
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 599
+저장 시간 : 2022-05-18 11:35:42 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+	unordered_set<int> us{ 1,2,3,4 };
+
+	for (int n : us) {
+		cout << n << "  ";
+	}
+	cout << endl;
+
+	us.insert(5);
+	us.insert(9);
+	
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 662
+저장 시간 : 2022-05-18 11:35:56 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+	unordered_set<int> us{ 1,2,3,4 };
+
+	for (int n : us) {
+		cout << n << "  ";
+	}
+	cout << endl;
+
+	us.insert(51);
+	us.insert(9);
+
+	for (int n : us) {
+		cout << n << "  ";
+	}
+	cout << endl;
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 662
+저장 시간 : 2022-05-18 11:36:14 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+	unordered_set<int> us{ 1,2,3,4 };
+
+	for (int n : us) {
+		cout << n << "  ";
+	}
+	cout << endl;
+
+	us.insert(-1);
+	us.insert(9);
+
+	for (int n : us) {
+		cout << n << "  ";
+	}
+	cout << endl;
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 679
+저장 시간 : 2022-05-18 11:36:35 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+int main() {
+
+	unordered_set<int> us{ 1,2,3,4 };
+
+	for (int n : us) {
+		cout << n << "  ";
+	}
+	cout << endl;
+
+	us.insert(-1);
+	us.insert(9);
+	us.insert(-2);
+
+	for (int n : us) {
+		cout << n << "  ";
+	}
+	cout << endl;
+
+	save("main.cpp");
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1225
+저장 시간 : 2022-05-18 12:18:12 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+//탬플릿을 특수화
+template <>
+class hash<STRING> {
+public:
+	size_t operator()(const STRING& s) const {
+		size_t val = hash<string>()(string(s.begin(), s.end()));
+		cout << "해셔의 출력 - " << val << "버킷 크기로 나눈 값 = " << (val) % 8 << endl;
+		return val;
+	}
+};
+
+int main() {
+	save("main.cpp");
+	//unordered_set<STRING> us{ "Standerd","Template","Library"};
+
+	//while (true) {
+	//	//현재 메모리를 그림으로 출력
+	//	//추가할 데이터를 입력받는다
+	//	for (int i{}; i < us.bucket_count(); ++i) {
+	//		cout << "[ " << i << " ] ";
+	//		for (auto p = us.begin(i); p != us.end(i);++p) {
+	//			cout << " - " << *p;
+	//		}
+	//		cout << endl;
+	//	}
+	//	cout << endl;
+	//	cout << "추가할 STRING를 입려하라 :";
+	//	STRING num;
+	//	cin >> num;
+	//	us.insert(num);		
+	//
+	//}
+
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1436
+저장 시간 : 2022-05-18 12:39:43 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  비교할 컨테이너 vector / set / unordered_set
+//  컨테이너의 원소 - 10000000개의 int
+//  찾아볼 원소 = 10000000개의 int가 천만개를 갖고있는 컨테이너에 있는지
+//  비교 - 걸리는 시간 비교
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include <array>
+#include <vector>
+#include <set>
+#include <random>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+#define TOTAL 10000000
+
+array<int, TOTAL> numbers;
+array<int, 10000> toFind;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 100000000};
+
+int main() {
+	save("main.cpp");
+	for (int& n : numbers) {
+		n = uid(dre);
+	}
+	for (int& n : toFind) {
+		n = uid(dre);
+	}
+
+	{
+		vector<int> v = { numbers.begin(),numbers.end() };
+		shuffle(v.begin(), v.end(),dre);
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = find(v.begin(), v.end(), n);
+			if (p != v.end()) {
+				cnt++;
+			}
+		}
+		cout << "vector find count = " << cnt << endl;
+	}
+
+
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1435
+저장 시간 : 2022-05-18 12:40:46 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  비교할 컨테이너 vector / set / unordered_set
+//  컨테이너의 원소 - 10000000개의 int
+//  찾아볼 원소 = 10000000개의 int가 천만개를 갖고있는 컨테이너에 있는지
+//  비교 - 걸리는 시간 비교
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include <array>
+#include <vector>
+#include <set>
+#include <random>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+#define TOTAL 10000000
+
+array<int, TOTAL> numbers;
+array<int, 1000> toFind;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 100000000};
+
+int main() {
+	save("main.cpp");
+	for (int& n : numbers) {
+		n = uid(dre);
+	}
+	for (int& n : toFind) {
+		n = uid(dre);
+	}
+
+	{
+		vector<int> v = { numbers.begin(),numbers.end() };
+		shuffle(v.begin(), v.end(),dre);
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = find(v.begin(), v.end(), n);
+			if (p != v.end()) {
+				cnt++;
+			}
+		}
+		cout << "vector find count = " << cnt << endl;
+	}
+
+
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1682
+저장 시간 : 2022-05-18 12:44:23 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  비교할 컨테이너 vector / set / unordered_set
+//  컨테이너의 원소 - 10000000개의 int
+//  찾아볼 원소 = 10000000개의 int가 천만개를 갖고있는 컨테이너에 있는지
+//  비교 - 걸리는 시간 비교
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include <array>
+#include <vector>
+#include <set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+#define TOTAL 10000000
+
+array<int, TOTAL> numbers;
+array<int, 1000> toFind;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 100000000};
+
+int main() {
+	save("main.cpp");
+	for (int& n : numbers) {
+		n = uid(dre);
+	}
+	for (int& n : toFind) {
+		n = uid(dre);
+	}
+
+	
+	{
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+
+		vector<int> v = { numbers.begin(),numbers.end() };
+		shuffle(v.begin(), v.end(),dre);
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = find(v.begin(), v.end(), n);
+			if (p != v.end()) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "vector time = " << et << endl;
+	}
+
+
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 2995
+저장 시간 : 2022-05-18 12:48:56 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  비교할 컨테이너 vector / set / unordered_set
+//  컨테이너의 원소 - 10000000개의 int
+//  찾아볼 원소 = 10000000개의 int가 천만개를 갖고있는 컨테이너에 있는지
+//  비교 - 걸리는 시간 비교
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include <array>
+#include <vector>
+#include <set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include <thread>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+#define TOTAL 10000000
+
+array<int, TOTAL> numbers;
+array<int, 1000> toFind;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 100000000};
+
+
+
+void vectorWork() {
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+
+	vector<int> v = { numbers.begin(),numbers.end() };
+	shuffle(v.begin(), v.end(), dre);
+
+	cout << "vector Size = " << v.size() << endl;
+
+	cout << "vector Find val size = " << toFind.size() << endl;
+
+	cout << "vector Now Finding..." << endl;
+
+	int cnt{};
+	for (int n : toFind) {
+		auto p = find(v.begin(), v.end(), n);
+		if (p != v.end()) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "vector find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "vector time = " << et << endl;
+}
+
+void setWork() {
+
+}
+
+int main() {
+	save("main.cpp");
+
+	for (int& n : numbers) {
+		n = uid(dre);
+	}
+	for (int& n : toFind) {
+		n = uid(dre);
+	}
+
+	
+	{
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+
+		vector<int> v = { numbers.begin(),numbers.end() };
+		shuffle(v.begin(), v.end(),dre);
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = find(v.begin(), v.end(), n);
+			if (p != v.end()) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "vector time = " << et << endl;
+	}
+
+	{
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+
+		set<int> s = { numbers.begin(),numbers.end() };
+
+		cout << "set Size = " << s.size() << endl;
+
+		cout << "set Find val size = " << toFind.size() << endl;
+
+		cout << "set Now Finding..." << endl;
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = s.find(n);
+			if (p != s.end()) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "set time = " << et << endl;
+	}
+
+
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 3001
+저장 시간 : 2022-05-18 12:49:38 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  비교할 컨테이너 vector / set / unordered_set
+//  컨테이너의 원소 - 10000000개의 int
+//  찾아볼 원소 = 10000000개의 int가 천만개를 갖고있는 컨테이너에 있는지
+//  비교 - 걸리는 시간 비교
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include <array>
+#include <vector>
+#include <set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include <thread>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+#define TOTAL 10000000
+
+array<int, TOTAL> numbers;
+array<int, 1000> toFind;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 100000000};
+
+
+
+void vectorWork() {
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+
+	vector<int> v = { numbers.begin(),numbers.end() };
+	shuffle(v.begin(), v.end(), dre);
+
+	cout << "vector Size = " << v.size() << endl;
+
+	cout << "vector Find val size = " << toFind.size() << endl;
+
+	cout << "vector Now Finding..." << endl;
+
+	int cnt{};
+	for (int n : toFind) {
+		auto p = find(v.begin(), v.end(), n);
+		if (p != v.end()) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "vector find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "vector time = " << et << endl;
+}
+
+void setWork() {
+
+}
+
+int main() {
+	save("main.cpp");
+
+	for (int& n : numbers) {
+		n = uid(dre);
+	}
+	for (int& n : toFind) {
+		n = uid(dre);
+	}
+
+	
+	{
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+
+		vector<int> v = { numbers.begin(),numbers.end() };
+		shuffle(v.begin(), v.end(),dre);
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = find(v.begin(), v.end(), n);
+			if (p != v.end()) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "vector time = " << et << endl;
+	}
+
+	{
+		
+
+
+		set<int> s = { numbers.begin(),numbers.end() };
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		cout << "set Size = " << s.size() << endl;
+
+		cout << "set Find val size = " << toFind.size() << endl;
+
+		cout << "set Now Finding..." << endl;
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = s.find(n);
+			if (p != s.end()) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "set time = " << et << endl;
+	}
+
+
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 3644
+저장 시간 : 2022-05-18 12:51:45 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  비교할 컨테이너 vector / set / unordered_set
+//  컨테이너의 원소 - 10000000개의 int
+//  찾아볼 원소 = 10000000개의 int가 천만개를 갖고있는 컨테이너에 있는지
+//  비교 - 걸리는 시간 비교
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include <array>
+#include <vector>
+#include <set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include <thread>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+#define TOTAL 10000000
+
+array<int, TOTAL> numbers;
+array<int, 1000> toFind;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 100000000};
+
+
+
+void vectorWork() {
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+
+	vector<int> v = { numbers.begin(),numbers.end() };
+	shuffle(v.begin(), v.end(), dre);
+
+	cout << "vector Size = " << v.size() << endl;
+
+	cout << "vector Find val size = " << toFind.size() << endl;
+
+	cout << "vector Now Finding..." << endl;
+
+	int cnt{};
+	for (int n : toFind) {
+		auto p = find(v.begin(), v.end(), n);
+		if (p != v.end()) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "vector find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "vector time = " << et << endl;
+}
+
+void setWork() {
+
+}
+
+int main() {
+	save("main.cpp");
+
+	for (int& n : numbers) {
+		n = uid(dre);
+	}
+	for (int& n : toFind) {
+		n = uid(dre);
+	}
+
+	
+	{
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+
+		vector<int> v = { numbers.begin(),numbers.end() };
+		shuffle(v.begin(), v.end(),dre);
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = find(v.begin(), v.end(), n);
+			if (p != v.end()) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "vector time = " << et << endl;
+	}
+
+	{
+		
+		set<int> s = { numbers.begin(),numbers.end() };
+		
+		cout << "set Size = " << s.size() << endl;
+
+		cout << "set Find val size = " << toFind.size() << endl;
+
+		cout << "set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "set time = " << et << endl;
+	}
+
+	{
+		//순서없는 셋
+		unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+		cout << "unordered_set Size = " << s.size() << endl;
+
+		cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+		cout << "unordered_set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "unordered_set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "unordered_set time = " << et << endl;
+	}
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 4939
+저장 시간 : 2022-05-18 12:54:39 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  비교할 컨테이너 vector / set / unordered_set
+//  컨테이너의 원소 - 10000000개의 int
+//  찾아볼 원소 = 10000000개의 int가 천만개를 갖고있는 컨테이너에 있는지
+//  비교 - 걸리는 시간 비교
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include <array>
+#include <vector>
+#include <set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include <thread>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+#define TOTAL 10000000
+
+array<int, TOTAL> numbers;
+array<int, 1000> toFind;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 100000000};
+
+
+
+void vectorWork() {
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+
+	vector<int> v = { numbers.begin(),numbers.end() };
+	shuffle(v.begin(), v.end(), dre);
+
+	cout << "vector Size = " << v.size() << endl;
+
+	cout << "vector Find val size = " << toFind.size() << endl;
+
+	cout << "vector Now Finding..." << endl;
+
+	int cnt{};
+	for (int n : toFind) {
+		auto p = find(v.begin(), v.end(), n);
+		if (p != v.end()) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "vector find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "vector time = " << et << endl;
+}
+
+void setWork() {
+
+	set<int> s = { numbers.begin(),numbers.end() };
+
+	cout << "set Size = " << s.size() << endl;
+
+	cout << "set Find val size = " << toFind.size() << endl;
+
+	cout << "set Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	//C++ 20
+	for (int n : toFind) {
+		if (s.contains(n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "set find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "set time = " << et << endl;
+}
+
+void unordered_setWork() {
+	//순서없는 셋
+	unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+	cout << "unordered_set Size = " << s.size() << endl;
+
+	cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+	cout << "unordered_set Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	//C++ 20
+	for (int n : toFind) {
+		if (s.contains(n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "unordered_set find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "unordered_set time = " << et << endl;
+}
+
+int main() {
+	save("main.cpp");
+
+	for (int& n : numbers) {
+		n = uid(dre);
+	}
+	for (int& n : toFind) {
+		n = uid(dre);
+	}
+
+	
+	{
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+
+		vector<int> v = { numbers.begin(),numbers.end() };
+		shuffle(v.begin(), v.end(),dre);
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = find(v.begin(), v.end(), n);
+			if (p != v.end()) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "vector time = " << et << endl;
+	}
+
+	{
+		
+		set<int> s = { numbers.begin(),numbers.end() };
+		
+		cout << "set Size = " << s.size() << endl;
+
+		cout << "set Find val size = " << toFind.size() << endl;
+
+		cout << "set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "set time = " << et << endl;
+	}
+
+	{
+		//순서없는 셋
+		unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+		cout << "unordered_set Size = " << s.size() << endl;
+
+		cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+		cout << "unordered_set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "unordered_set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "unordered_set time = " << et << endl;
+	}
+	
+
+	thread(vectorWork);
+	thread(setWork);
+	thread(unorederd_setWork);
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 4987
+저장 시간 : 2022-05-18 12:56:30 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  비교할 컨테이너 vector / set / unordered_set
+//  컨테이너의 원소 - 10000000개의 int
+//  찾아볼 원소 = 10000000개의 int가 천만개를 갖고있는 컨테이너에 있는지
+//  비교 - 걸리는 시간 비교
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include <array>
+#include <vector>
+#include <set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include <thread>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+#define TOTAL 10000000
+
+array<int, TOTAL> numbers;
+array<int, 1000> toFind;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 100000000};
+
+
+
+void vectorWork() {
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+
+	vector<int> v = { numbers.begin(),numbers.end() };
+	shuffle(v.begin(), v.end(), dre);
+
+	cout << "vector Size = " << v.size() << endl;
+
+	cout << "vector Find val size = " << toFind.size() << endl;
+
+	cout << "vector Now Finding..." << endl;
+
+	int cnt{};
+	for (int n : toFind) {
+		auto p = find(v.begin(), v.end(), n);
+		if (p != v.end()) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "vector find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "vector time = " << et << endl;
+}
+
+void setWork() {
+
+	set<int> s = { numbers.begin(),numbers.end() };
+
+	cout << "set Size = " << s.size() << endl;
+
+	cout << "set Find val size = " << toFind.size() << endl;
+
+	cout << "set Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	//C++ 20
+	for (int n : toFind) {
+		if (s.contains(n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "set find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "set time = " << et << endl;
+}
+
+void unordered_setWork() {
+	//순서없는 셋
+	unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+	cout << "unordered_set Size = " << s.size() << endl;
+
+	cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+	cout << "unordered_set Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	//C++ 20
+	for (int n : toFind) {
+		if (s.contains(n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "unordered_set find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "unordered_set time = " << et << endl;
+}
+
+int main() {
+	save("main.cpp");
+
+	for (int& n : numbers) {
+		n = uid(dre);
+	}
+	for (int& n : toFind) {
+		n = uid(dre);
+	}
+
+	
+	{
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+
+		vector<int> v = { numbers.begin(),numbers.end() };
+		shuffle(v.begin(), v.end(),dre);
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = find(v.begin(), v.end(), n);
+			if (p != v.end()) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "vector time = " << et << endl;
+	}
+
+	{
+		
+		set<int> s = { numbers.begin(),numbers.end() };
+		
+		cout << "set Size = " << s.size() << endl;
+
+		cout << "set Find val size = " << toFind.size() << endl;
+
+		cout << "set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "set time = " << et << endl;
+	}
+
+	{
+		//순서없는 셋
+		unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+		cout << "unordered_set Size = " << s.size() << endl;
+
+		cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+		cout << "unordered_set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "unordered_set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "unordered_set time = " << et << endl;
+	}
+	
+
+	thread t1(vectorWork);
+	thread t2(setWork);
+	thread t3(unordered_setWork);
+
+	t1.join();
+	t2.join();
+	t3.join();
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 5654
+저장 시간 : 2022-05-18 12:59:15 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  비교할 컨테이너 vector / set / unordered_set
+//  컨테이너의 원소 - 10000000개의 int
+//  찾아볼 원소 = 10000000개의 int가 천만개를 갖고있는 컨테이너에 있는지
+//  비교 - 걸리는 시간 비교
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include <array>
+#include <vector>
+#include <set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include <thread>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+#define TOTAL 10000000
+
+array<int, TOTAL> numbers;
+array<int, 1000> toFind;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 100000000};
+
+
+
+void vectorWork() {
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+
+	vector<int> v = { numbers.begin(),numbers.end() };
+	shuffle(v.begin(), v.end(), dre);
+
+	cout << "vector Size = " << v.size() << endl;
+
+	cout << "vector Find val size = " << toFind.size() << endl;
+
+	cout << "vector Now Finding..." << endl;
+
+	int cnt{};
+	for (int n : toFind) {
+		auto p = find(v.begin(), v.end(), n);
+		if (p != v.end()) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "vector find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "vector time = " << et << endl;
+}
+
+void setWork() {
+
+	set<int> s = { numbers.begin(),numbers.end() };
+
+	cout << "set Size = " << s.size() << endl;
+
+	cout << "set Find val size = " << toFind.size() << endl;
+
+	cout << "set Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	//C++ 20
+	for (int n : toFind) {
+		if (s.contains(n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "set find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "set time = " << et << endl;
+}
+
+void unordered_setWork() {
+	//순서없는 셋
+	unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+	cout << "unordered_set Size = " << s.size() << endl;
+
+	cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+	cout << "unordered_set Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	//C++ 20
+	for (int n : toFind) {
+		if (s.contains(n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "unordered_set find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "unordered_set time = " << et << endl;
+}
+
+int main() {
+	save("main.cpp");
+
+	for (int& n : numbers) {
+		n = uid(dre);
+	}
+	for (int& n : toFind) {
+		n = uid(dre);
+	}
+
+	
+	{
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+
+		vector<int> v = { numbers.begin(),numbers.end() };
+		shuffle(v.begin(), v.end(),dre);
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = find(v.begin(), v.end(), n);
+			if (p != v.end()) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "vector time = " << et << endl;
+	}
+
+	{
+		
+		set<int> s = { numbers.begin(),numbers.end() };
+		
+		cout << "set Size = " << s.size() << endl;
+
+		cout << "set Find val size = " << toFind.size() << endl;
+
+		cout << "set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "set time = " << et << endl;
+	}
+
+	{
+		//순서없는 셋
+		unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+		cout << "unordered_set Size = " << s.size() << endl;
+
+		cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+		cout << "unordered_set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "unordered_set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "unordered_set time = " << et << endl;
+	}
+	
+	//정렬된 벡터의 찾기 실력
+	{
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		vector<int> v = { numbers.begin(),numbers.end() };
+		sort(v.begin(), v.end());
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		int cnt{};
+		for (int n : toFind) {
+			if (binary_search(v.begin(), v.end(), n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "vector time = " << et << endl;
+	}
+
+	thread t1(vectorWork);
+	thread t2(setWork);
+	thread t3(unordered_setWork);
+
+	t1.join();
+	t2.join();
+	t3.join();
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 5661
+저장 시간 : 2022-05-18 13:00:31 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  비교할 컨테이너 vector / set / unordered_set
+//  컨테이너의 원소 - 10000000개의 int
+//  찾아볼 원소 = 10000000개의 int가 천만개를 갖고있는 컨테이너에 있는지
+//  비교 - 걸리는 시간 비교
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include <array>
+#include <vector>
+#include <set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include <thread>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+#define TOTAL 10000000
+
+array<int, TOTAL> numbers;
+array<int, 1000> toFind;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 100000000};
+
+
+
+void vectorWork() {
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+
+	vector<int> v = { numbers.begin(),numbers.end() };
+	shuffle(v.begin(), v.end(), dre);
+
+	cout << "vector Size = " << v.size() << endl;
+
+	cout << "vector Find val size = " << toFind.size() << endl;
+
+	cout << "vector Now Finding..." << endl;
+
+	int cnt{};
+	for (int n : toFind) {
+		auto p = find(v.begin(), v.end(), n);
+		if (p != v.end()) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "vector find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "vector time = " << et << endl;
+}
+
+void setWork() {
+
+	set<int> s = { numbers.begin(),numbers.end() };
+
+	cout << "set Size = " << s.size() << endl;
+
+	cout << "set Find val size = " << toFind.size() << endl;
+
+	cout << "set Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	//C++ 20
+	for (int n : toFind) {
+		if (s.contains(n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "set find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "set time = " << et << endl;
+}
+
+void unordered_setWork() {
+	//순서없는 셋
+	unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+	cout << "unordered_set Size = " << s.size() << endl;
+
+	cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+	cout << "unordered_set Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	//C++ 20
+	for (int n : toFind) {
+		if (s.contains(n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "unordered_set find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "unordered_set time = " << et << endl;
+}
+
+int main() {
+	save("main.cpp");
+
+	for (int& n : numbers) {
+		n = uid(dre);
+	}
+	for (int& n : toFind) {
+		n = uid(dre);
+	}
+
+	
+	{
+		vector<int> v = { numbers.begin(),numbers.end() };
+		shuffle(v.begin(), v.end(),dre);
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = find(v.begin(), v.end(), n);
+			if (p != v.end()) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "vector time = " << et << endl;
+	}
+
+	{
+		
+		set<int> s = { numbers.begin(),numbers.end() };
+		
+		cout << "set Size = " << s.size() << endl;
+
+		cout << "set Find val size = " << toFind.size() << endl;
+
+		cout << "set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "set time = " << et << endl;
+	}
+
+	{
+		//순서없는 셋
+		unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+		cout << "unordered_set Size = " << s.size() << endl;
+
+		cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+		cout << "unordered_set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "unordered_set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "unordered_set time = " << et << endl;
+	}
+	
+	//정렬된 벡터의 찾기 실력
+	{
+	
+
+		vector<int> v = { numbers.begin(),numbers.end() };
+		sort(v.begin(), v.end());
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		for (int n : toFind) {
+			if (binary_search(v.begin(), v.end(), n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "vector time = " << et << endl;
+	}
+
+	/*thread t1(vectorWork);
+	thread t2(setWork);
+	thread t3(unordered_setWork);
+
+	t1.join();
+	t2.join();
+	t3.join();*/
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 6423
+저장 시간 : 2022-05-18 13:03:50 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  비교할 컨테이너 vector / set / unordered_set
+//  컨테이너의 원소 - 10000000개의 int
+//  찾아볼 원소 = 10000000개의 int가 천만개를 갖고있는 컨테이너에 있는지
+//  비교 - 걸리는 시간 비교
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include <array>
+#include <vector>
+#include <set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include <thread>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+#define TOTAL 10000000
+
+array<int, TOTAL> numbers;
+array<int, 1000> toFind;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 100000000};
+
+
+
+void vectorWork() {
+	
+	vector<int> v = { numbers.begin(),numbers.end() };
+	shuffle(v.begin(), v.end(), dre);
+
+	cout << "vector Size = " << v.size() << endl;
+
+	cout << "vector Find val size = " << toFind.size() << endl;
+
+	cout << "vector Now Finding..." << endl;
+	//시간측정
+	auto start = chrono::steady_clock::now();
+	int cnt{};
+	for (int n : toFind) {
+		auto p = find(v.begin(), v.end(), n);
+		if (p != v.end()) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "vector find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "vector time = " << et << endl;
+}
+
+void setWork() {
+
+	set<int> s = { numbers.begin(),numbers.end() };
+
+	cout << "set Size = " << s.size() << endl;
+
+	cout << "set Find val size = " << toFind.size() << endl;
+
+	cout << "set Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	//C++ 20
+	for (int n : toFind) {
+		if (s.contains(n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "set find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "set time = " << et << endl;
+}
+
+void unordered_setWork() {
+	//순서없는 셋
+	unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+	cout << "unordered_set Size = " << s.size() << endl;
+
+	cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+	cout << "unordered_set Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	//C++ 20
+	for (int n : toFind) {
+		if (s.contains(n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "unordered_set find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "unordered_set time = " << et << endl;
+}
+
+void sortingVectorWork() {
+	vector<int> v = { numbers.begin(),numbers.end() };
+	sort(v.begin(), v.end());
+
+	cout << "sorting vector Size = " << v.size() << endl;
+
+	cout << "sorting vector Find val size = " << toFind.size() << endl;
+
+	cout << "sorting vector Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	for (int n : toFind) {
+		if (binary_search(v.begin(), v.end(), n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "sorting vector find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "sorting vector time = " << et << endl;
+}
+
+int main() {
+	save("main.cpp");
+
+	for (int& n : numbers) {
+		n = uid(dre);
+	}
+	for (int& n : toFind) {
+		n = uid(dre);
+	}
+
+	
+	{
+		vector<int> v = { numbers.begin(),numbers.end() };
+		shuffle(v.begin(), v.end(),dre);
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = find(v.begin(), v.end(), n);
+			if (p != v.end()) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "vector time = " << et << endl;
+	}
+
+	{
+		
+		set<int> s = { numbers.begin(),numbers.end() };
+		
+		cout << "set Size = " << s.size() << endl;
+
+		cout << "set Find val size = " << toFind.size() << endl;
+
+		cout << "set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "set time = " << et << endl;
+	}
+
+	{
+		//순서없는 셋
+		unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+		cout << "unordered_set Size = " << s.size() << endl;
+
+		cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+		cout << "unordered_set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "unordered_set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "unordered_set time = " << et << endl;
+	}
+	
+	//정렬된 벡터의 찾기 실력
+	{
+		vector<int> v = { numbers.begin(),numbers.end() };
+		sort(v.begin(), v.end());
+
+		cout << "sorting vector Size = " << v.size() << endl;
+
+		cout << "sorting vector Find val size = " << toFind.size() << endl;
+
+		cout << "sorting vector Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		for (int n : toFind) {
+			if (binary_search(v.begin(), v.end(), n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "sorting vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "sorting vector time = " << et << endl;
+	}
+
+	thread t1(vectorWork);
+	thread t2(setWork);
+	thread t3(unordered_setWork);
+	thread t4(sortingVectorWork);
+
+	t1.join();
+	t2.join();
+	t3.join();
+	t4.join();
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 6423
+저장 시간 : 2022-05-18 13:06:30 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.18.        수34              월23수34               11주 2일     
+// 
+//  비교할 컨테이너 vector / set / unordered_set
+//  컨테이너의 원소 - 10000000개의 int
+//  찾아볼 원소 = 10000000개의 int가 천만개를 갖고있는 컨테이너에 있는지
+//  비교 - 걸리는 시간 비교
+// ============================================================================
+
+
+#include <iostream>
+#include <unordered_set>
+#include <array>
+#include <vector>
+#include <set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include <thread>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+#define TOTAL 10000000
+
+array<int, TOTAL> numbers;
+array<int, 1000> toFind;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 100000000};
+
+
+
+void vectorWork() {
+	
+	vector<int> v = { numbers.begin(),numbers.end() };
+	shuffle(v.begin(), v.end(), dre);
+
+	cout << "vector Size = " << v.size() << endl;
+
+	cout << "vector Find val size = " << toFind.size() << endl;
+
+	cout << "vector Now Finding..." << endl;
+	//시간측정
+	auto start = chrono::steady_clock::now();
+	int cnt{};
+	for (int n : toFind) {
+		auto p = find(v.begin(), v.end(), n);
+		if (p != v.end()) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "vector find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "vector time = " << et << endl;
+}
+
+void setWork() {
+
+	set<int> s = { numbers.begin(),numbers.end() };
+
+	cout << "set Size = " << s.size() << endl;
+
+	cout << "set Find val size = " << toFind.size() << endl;
+
+	cout << "set Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	//C++ 20
+	for (int n : toFind) {
+		if (s.contains(n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "set find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "set time = " << et << endl;
+}
+
+void unordered_setWork() {
+	//순서없는 셋
+	unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+	cout << "unordered_set Size = " << s.size() << endl;
+
+	cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+	cout << "unordered_set Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	//C++ 20
+	for (int n : toFind) {
+		if (s.contains(n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "unordered_set find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "unordered_set time = " << et << endl;
+}
+
+void sortingVectorWork() {
+	vector<int> v = { numbers.begin(),numbers.end() };
+	sort(v.begin(), v.end());
+
+	cout << "sorting vector Size = " << v.size() << endl;
+
+	cout << "sorting vector Find val size = " << toFind.size() << endl;
+
+	cout << "sorting vector Now Finding..." << endl;
+
+	//시간측정
+	auto start = chrono::steady_clock::now();
+
+	int cnt{};
+	for (int n : toFind) {
+		if (binary_search(v.begin(), v.end(), n)) {
+			cnt++;
+		}
+	}
+	auto stop = chrono::steady_clock::now();
+	cout << "sorting vector find count = " << cnt << endl;
+
+	auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+	cout << "sorting vector time = " << et << endl;
+}
+
+int main() {
+	save("main.cpp");
+
+	for (int& n : numbers) {
+		n = uid(dre);
+	}
+	for (int& n : toFind) {
+		n = uid(dre);
+	}
+
+	
+	{
+		vector<int> v = { numbers.begin(),numbers.end() };
+		shuffle(v.begin(), v.end(),dre);
+
+		cout << "vector Size = " << v.size() << endl;
+
+		cout << "vector Find val size = " << toFind.size() << endl;
+
+		cout << "vector Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		for (int n : toFind) {
+			auto p = find(v.begin(), v.end(), n);
+			if (p != v.end()) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "vector time = " << et << endl;
+	}
+
+	{
+		
+		set<int> s = { numbers.begin(),numbers.end() };
+		
+		cout << "set Size = " << s.size() << endl;
+
+		cout << "set Find val size = " << toFind.size() << endl;
+
+		cout << "set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "set time = " << et << endl;
+	}
+
+	{
+		//순서없는 셋
+		unordered_set<int> s = { numbers.begin(),numbers.end() };
+
+		cout << "unordered_set Size = " << s.size() << endl;
+
+		cout << "unordered_set Find val size = " << toFind.size() << endl;
+
+		cout << "unordered_set Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		//C++ 20
+		for (int n : toFind) {
+			if (s.contains(n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "unordered_set find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "unordered_set time = " << et << endl;
+	}
+	
+	//정렬된 벡터의 찾기 실력
+	{
+		vector<int> v = { numbers.begin(),numbers.end() };
+		sort(v.begin(), v.end());
+
+		cout << "sorting vector Size = " << v.size() << endl;
+
+		cout << "sorting vector Find val size = " << toFind.size() << endl;
+
+		cout << "sorting vector Now Finding..." << endl;
+
+		//시간측정
+		auto start = chrono::steady_clock::now();
+
+		int cnt{};
+		for (int n : toFind) {
+			if (binary_search(v.begin(), v.end(), n)) {
+				cnt++;
+			}
+		}
+		auto stop = chrono::steady_clock::now();
+		cout << "sorting vector find count = " << cnt << endl;
+
+		auto et = chrono::duration_cast<chrono::microseconds> (stop - start);
+		cout << "sorting vector time = " << et << endl;
+	}
+
+	thread t1(vectorWork);
+	thread t2(setWork);
+	thread t3(unordered_setWork);
+	thread t4(sortingVectorWork);
+
+	t1.join();
+	t2.join();
+	t3.join();
+	t4.join();
+
+}
