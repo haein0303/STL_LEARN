@@ -146,13 +146,16 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="playground.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="save.cpp" />
     <ClCompile Include="source0307.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="source0314.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="STRING.cpp" />
   </ItemGroup>
@@ -182,6 +185,7 @@
     <Text Include="220511.txt" />
     <Text Include="220516.txt" />
     <Text Include="220518.txt" />
+    <Text Include="220523.txt" />
     <Text Include="LEE_2022 1학기 STL 월23수34 강의저장.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
