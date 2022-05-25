@@ -1,0 +1,11 @@
+modifying
+
+partition
+
+//	알고리즘 - 어떤것들이 있나 살펴본다
+//	sorting관련 알고리즘을 잘 살펴본다
+//	partition ( sorting은 아님 )
+//	nth_element
+//	partial_sort
+//	sort = n * log(n)
+//	stable_sort = log(log n)

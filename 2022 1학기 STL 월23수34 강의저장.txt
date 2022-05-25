@@ -20127,3 +20127,1800 @@ int main() {
 
 
 }
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 643
+저장 시간 : 2022-05-25 11:36:05 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+	
+	vector v{ 1,2,3,4,5 };
+	shift_left(v.begin(), v.end(), 1);
+
+	for (const auto& a : v) {
+		cout << a << endl;
+	}
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 636
+저장 시간 : 2022-05-25 11:36:20 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+	
+	vector v{ 1,2,3,4,5 };
+	shift_left(v.begin(), v.end(), 1);
+
+	for (const auto& a : v) {
+		cout << a ;
+	}
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 645
+저장 시간 : 2022-05-25 11:40:25 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+	
+	vector v{ 1,2,3,4,5 };
+	v.erase(shift_left(v.begin(), v.end(), 1));
+
+	for (const auto& a : v) {
+		cout << a ;
+	}
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 700
+저장 시간 : 2022-05-25 11:44:03 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+default_random_engine re;
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<int> v(45);
+	iota(v.begin(), v.end(), 1);
+
+	for (int n : v) {
+		cout << n << " ";
+	}
+	cout << endl;
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 828
+저장 시간 : 2022-05-25 11:46:17 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+default_random_engine dre;
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<int> v(45);
+	iota(v.begin(), v.end(), 1);
+
+	for (int n : v) {
+		cout << n << " ";
+	}
+	cout << endl;
+
+	//임의의 6개 숫자를 골라 출력한다.
+	sample(v.begin(), v.end(), ostream_iterator<int>{cout, " "}, 6,dre);
+	cout << endl;
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 854
+저장 시간 : 2022-05-25 11:46:52 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<int> v(45);
+	iota(v.begin(), v.end(), 1);
+
+	for (int n : v) {
+		cout << n << " ";
+	}
+	cout << endl;
+
+	//임의의 6개 숫자를 골라 출력한다.
+	sample(v.begin(), v.end(), ostream_iterator<int>{cout, " "}, 6,dre);
+	cout << endl;
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 960
+저장 시간 : 2022-05-25 12:00:06 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+//	sorting관련 알고리즘을 잘 살펴본다
+//	partition ( sorting은 아님 )
+//	nth_element
+//	partial_sort
+//	sort
+//	stable_sort
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+
+void print(const vector<int>& v) {
+	for (int n : v) {
+		cout << format("{:^4}", n) << "|";
+	}
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	// 1부터 100까지 값을 저장하는 vector
+	vector<int> v(100);
+	iota(v.begin(), v.end(), 1);
+
+	cout << "vector V의 원소들 : " << endl;
+	print(v);
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 960
+저장 시간 : 2022-05-25 12:00:20 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+//	sorting관련 알고리즘을 잘 살펴본다
+//	partition ( sorting은 아님 )
+//	nth_element
+//	partial_sort
+//	sort
+//	stable_sort
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+
+void print(const vector<int>& v) {
+	for (int n : v) {
+		cout << format("{:^5}", n) << "|";
+	}
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	// 1부터 100까지 값을 저장하는 vector
+	vector<int> v(100);
+	iota(v.begin(), v.end(), 1);
+
+	cout << "vector V의 원소들 : " << endl;
+	print(v);
+	
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1472
+저장 시간 : 2022-05-25 12:08:33 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+//	sorting관련 알고리즘을 잘 살펴본다
+//	partition ( sorting은 아님 )
+//	nth_element
+//	partial_sort
+//	sort
+//	stable_sort
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+
+template<class T>
+void print(T begin, T end) {
+	while (begin != end) {
+		cout << format("{:^5}", *begin) << "|";
+		begin++;
+	}
+	cout << endl;
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	// 1부터 100까지 값을 저장하는 vector
+	vector<int> v(100);
+	iota(v.begin(), v.end(), 1);
+
+	cout << "vector V의 원소들 : " << endl;
+	print(v.begin(),v.end());
+
+	{
+		shuffle(v.begin(), v.end(), dre);
+		cout << "파티션 전 데이터 vector<int>: " << endl;
+		print(v.begin(),v.end());
+		//[문제] 홀짝으로 나눠라
+		//홀수와 짝수를 따로 출력
+		
+		auto p = partition(v.begin(), v.end(), [](int a) {
+			return a % 2;
+			});
+		cout << "짝수 : " << endl;
+		print(v.begin(), p);
+		cout << "홀수 : " << endl;
+		print(p, v.end());
+	}
+
+
+	{
+
+	}
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1886
+저장 시간 : 2022-05-25 12:23:43 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+//	sorting관련 알고리즘을 잘 살펴본다
+//	partition ( sorting은 아님 )
+//	nth_element
+//	partial_sort
+//	sort
+//	stable_sort
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+
+template<class T>
+void print(T begin, T end) {
+	while (begin != end) {
+		cout << format("{:^5}", *begin) << "|";
+		begin++;
+	}
+	cout << endl;
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	// 1부터 100까지 값을 저장하는 vector
+	vector<int> v(100);
+	iota(v.begin(), v.end(), 1);
+
+	cout << "vector V의 원소들 : " << endl;
+	print(v.begin(),v.end());
+
+	{//partition - 조건에 맞는것과 아닌 것을 분리
+		shuffle(v.begin(), v.end(), dre);
+		cout << "파티션 전 데이터 vector<int>: " << endl;
+		print(v.begin(),v.end());
+		//[문제] 홀짝으로 나눠라
+		//홀수와 짝수를 따로 출력
+		
+		auto p = partition(v.begin(), v.end(), [](int a) {
+			return a % 2;
+			});
+		cout << "홀수 : " << endl;
+		print(v.begin(), p);
+		cout << "짝수 : " << endl;
+		print(p, v.end());
+	}
+
+
+	{//nth_elemant - 20등까지는 통과 
+		shuffle(v.begin(), v.end(), dre);
+		cout << "nth_element 전 데이터 vector<int>: " << endl;
+		print(v.begin(), v.end());
+		//[문제] 20등까지는 통과
+		nth_element(v.begin(), v.begin()+20, v.end());
+		cout << "20등까지 : " << endl;
+		print(v.begin(), v.begin() + 20);
+		cout << "나머지 : " << endl;
+		print(v.begin() + 2, v.end());
+	}
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1920
+저장 시간 : 2022-05-25 12:24:08 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+//	sorting관련 알고리즘을 잘 살펴본다
+//	partition ( sorting은 아님 )
+//	nth_element
+//	partial_sort
+//	sort
+//	stable_sort
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+
+template<class T>
+void print(T begin, T end) {
+	while (begin != end) {
+		cout << format("{:^5}", *begin) << "|";
+		begin++;
+	}
+	cout << endl;
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	// 1부터 100까지 값을 저장하는 vector
+	vector<int> v(100);
+	iota(v.begin(), v.end(), 1);
+
+	cout << "vector V의 원소들 : " << endl;
+	print(v.begin(),v.end());
+
+	{//partition - 조건에 맞는것과 아닌 것을 분리
+		shuffle(v.begin(), v.end(), dre);
+		cout << "파티션 전 데이터 vector<int>: " << endl;
+		print(v.begin(),v.end());
+		//[문제] 홀짝으로 나눠라
+		//홀수와 짝수를 따로 출력
+		
+		auto p = partition(v.begin(), v.end(), [](int a) {
+			return a % 2;
+			});
+		cout << "홀수 : " << endl;
+		print(v.begin(), p);
+		cout << "짝수 : " << endl;
+		print(p, v.end());
+		cout << endl;
+	}
+
+
+	{//nth_elemant - 20등까지는 통과 
+		shuffle(v.begin(), v.end(), dre);
+		cout << "nth_element 전 데이터 vector<int>: " << endl;
+		print(v.begin(), v.end());
+		//[문제] 20등까지는 통과
+		nth_element(v.begin(), v.begin()+20, v.end());
+		cout << "20등까지 : " << endl;
+		print(v.begin(), v.begin() + 20);
+		cout << "나머지 : " << endl;
+		print(v.begin() + 2, v.end());
+		cout << endl;
+	}
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1921
+저장 시간 : 2022-05-25 12:24:34 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+//	sorting관련 알고리즘을 잘 살펴본다
+//	partition ( sorting은 아님 )
+//	nth_element
+//	partial_sort
+//	sort
+//	stable_sort
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+
+template<class T>
+void print(T begin, T end) {
+	while (begin != end) {
+		cout << format("{:^5}", *begin) << "|";
+		begin++;
+	}
+	cout << endl;
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	// 1부터 100까지 값을 저장하는 vector
+	vector<int> v(100);
+	iota(v.begin(), v.end(), 1);
+
+	cout << "vector V의 원소들 : " << endl;
+	print(v.begin(),v.end());
+
+	{//partition - 조건에 맞는것과 아닌 것을 분리
+		shuffle(v.begin(), v.end(), dre);
+		cout << "파티션 전 데이터 vector<int>: " << endl;
+		print(v.begin(),v.end());
+		//[문제] 홀짝으로 나눠라
+		//홀수와 짝수를 따로 출력
+		
+		auto p = partition(v.begin(), v.end(), [](int a) {
+			return a % 2;
+			});
+		cout << "홀수 : " << endl;
+		print(v.begin(), p);
+		cout << "짝수 : " << endl;
+		print(p, v.end());
+		cout << endl;
+	}
+
+
+	{//nth_elemant - 20등까지는 통과 
+		shuffle(v.begin(), v.end(), dre);
+		cout << "nth_element 전 데이터 vector<int>: " << endl;
+		print(v.begin(), v.end());
+		//[문제] 20등까지는 통과
+		nth_element(v.begin(), v.begin()+20, v.end());
+		cout << "20등까지 : " << endl;
+		print(v.begin(), v.begin() + 20);
+		cout << "나머지 : " << endl;
+		print(v.begin() + 20, v.end());
+		cout << endl;
+	}
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 2332
+저장 시간 : 2022-05-25 12:41:27 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+//	sorting관련 알고리즘을 잘 살펴본다
+//	partition ( sorting은 아님 )
+//	nth_element
+//	partial_sort
+//	sort
+//	stable_sort
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+
+template<class T>
+void print(T begin, T end) {
+	while (begin != end) {
+		cout << format("{:^5}", *begin) << "|";
+		begin++;
+	}
+	cout << endl;
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	// 1부터 100까지 값을 저장하는 vector
+	vector<int> v(100);
+	iota(v.begin(), v.end(), 1);
+
+	cout << "vector V의 원소들 : " << endl;
+	print(v.begin(),v.end());
+
+	{//partition - 조건에 맞는것과 아닌 것을 분리
+		shuffle(v.begin(), v.end(), dre);
+		cout << "파티션 전 데이터 vector<int>: " << endl;
+		print(v.begin(),v.end());
+		//[문제] 홀짝으로 나눠라
+		//홀수와 짝수를 따로 출력
+		
+		auto p = partition(v.begin(), v.end(), [](int a) {
+			return a % 2;
+			});
+		cout << "홀수 : " << endl;
+		print(v.begin(), p);
+		cout << "짝수 : " << endl;
+		print(p, v.end());
+		cout << endl;
+	}
+
+
+	{//nth_elemant - 20등까지는 통과 
+		shuffle(v.begin(), v.end(), dre);
+		cout << "nth_element 전 데이터 vector<int>: " << endl;
+		print(v.begin(), v.end());
+		//[문제] 20등까지는 통과
+		nth_element(v.begin(), v.begin()+20, v.end());
+		cout << "20등까지 : " << endl;
+		print(v.begin(), v.begin() + 20);
+		cout << "나머지 : " << endl;
+		print(v.begin() + 20, v.end());
+		cout << endl;
+	}
+
+	{//partial_sort - 필요한 순서까지만 정렬
+		shuffle(v.begin(), v.end(), dre);
+		cout << "partial_sort 전 데이터 vector<int>: " << endl;
+		print(v.begin(), v.end());
+		//[문제] 20등까지는 통과
+		partial_sort(v.begin(), v.begin() + 20, v.end());
+		cout << "20등까지 : " << endl;
+		print(v.begin(), v.begin() + 20);
+		cout << "나머지 : " << endl;
+		print(v.begin() + 20, v.end());
+		cout << endl;
+	}
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 2709
+저장 시간 : 2022-05-25 12:50:17 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+//	sorting관련 알고리즘을 잘 살펴본다
+//	partition ( sorting은 아님 )
+//	nth_element
+//	partial_sort
+//	sort = n * log(n)
+//	stable_sort = log(log n)
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+
+template<class T>
+void print(T begin, T end) {
+	while (begin != end) {
+		cout << format("{:^5}", *begin) << "|";
+		begin++;
+	}
+	cout << endl;
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	// 1부터 100까지 값을 저장하는 vector
+	vector<int> v(100);
+	iota(v.begin(), v.end(), 1);
+
+	cout << "vector V의 원소들 : " << endl;
+	print(v.begin(),v.end());
+
+	{//partition - 조건에 맞는것과 아닌 것을 분리
+		shuffle(v.begin(), v.end(), dre);
+		cout << "파티션 전 데이터 vector<int>: " << endl;
+		print(v.begin(),v.end());
+		//[문제] 홀짝으로 나눠라
+		//홀수와 짝수를 따로 출력
+		
+		auto p = partition(v.begin(), v.end(), [](int a) {
+			return a % 2;
+			});
+		cout << "홀수 : " << endl;
+		print(v.begin(), p);
+		cout << "짝수 : " << endl;
+		print(p, v.end());
+		cout << endl;
+	}
+
+
+	{//nth_elemant - 20등까지는 통과 
+		shuffle(v.begin(), v.end(), dre);
+		cout << "nth_element 전 데이터 vector<int>: " << endl;
+		print(v.begin(), v.end());
+		//[문제] 20등까지는 통과
+		nth_element(v.begin(), v.begin()+20, v.end());
+		cout << "20등까지 : " << endl;
+		print(v.begin(), v.begin() + 20);
+		cout << "나머지 : " << endl;
+		print(v.begin() + 20, v.end());
+		cout << endl;
+	}
+
+	{//partial_sort - 필요한 순서까지만 정렬
+		shuffle(v.begin(), v.end(), dre);
+		cout << "partial_sort 전 데이터 vector<int>: " << endl;
+		print(v.begin(), v.end());
+		//[문제] 20등까지는 정렬
+		partial_sort(v.begin(), v.begin() + 20, v.end());
+		cout << "20등까지 : " << endl;
+		print(v.begin(), v.begin() + 20);
+		cout << "나머지 : " << endl;
+		print(v.begin() + 20, v.end());
+		cout << endl;
+	}
+
+	{//sort - 필요한 순서까지만 정렬
+		shuffle(v.begin(), v.end(), dre);
+		cout << "sort 전 데이터 vector<int>: " << endl;
+		print(v.begin(), v.end());
+		//[문제] 20등까지는 정렬
+		sort(v.begin(), v.end());
+
+		//[문제] 오름차순 (ascending order)으로 정렬하라
+		cout << "오름차순 : " << endl;
+		print(v.begin(), v.end());
+		cout << endl;
+	}
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1150
+저장 시간 : 2022-05-25 12:56:23 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+uniform_int_distribution<int> uidName{ 'A','Z' };
+uniform_int_distribution<int> uid{ 1,1000 };
+
+struct Dog {
+	string name;
+	int n;
+	Dog() {
+		for (int i = 0; i < 5; ++i) {
+			name += uidName(dre);
+		}
+		n = uid(dre);
+	}
+
+	void show() const {
+		cout << name << " - " << format(":>5", n) << "  |  ";
+	}
+};
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<Dog> v(20);
+	for (const Dog& a : v) {
+		a.show();
+	}
+
+	////stable_sort란?
+	//stable_sort(v.begin(), v.end());
+	//for (const Dog& a : v) {
+	//	a.show();
+	//}
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1152
+저장 시간 : 2022-05-25 12:56:36 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+uniform_int_distribution<int> uidName{ 'A','Z' };
+uniform_int_distribution<int> uid{ 1,1000 };
+
+struct Dog {
+	string name;
+	int n;
+	Dog() {
+		for (int i = 0; i < 5; ++i) {
+			name += uidName(dre);
+		}
+		n = uid(dre);
+	}
+
+	void show() const {
+		cout << name << " - " << format("{:>5}", n) << "  |  ";
+	}
+};
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<Dog> v(20);
+	for (const Dog& a : v) {
+		a.show();
+	}
+
+	////stable_sort란?
+	//stable_sort(v.begin(), v.end());
+	//for (const Dog& a : v) {
+	//	a.show();
+	//}
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1156
+저장 시간 : 2022-05-25 12:57:56 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+uniform_int_distribution<int> uidName{ 'A','Z' };
+uniform_int_distribution<int> uid{ 1,1000 };
+
+struct Dog {
+	string name;
+	int n;
+	Dog() {
+		for (int i = 0; i < 5; ++i) {
+			name += uidName(dre);
+		}
+		n = uid(dre);
+	}
+
+	void show() const {
+		cout << name << " - " << format("{:>5}", n) << endl;
+	}
+};
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<Dog> v(20);
+
+	////stable_sort란?
+	sort(v.begin(), v.end(), [](const Dog& a, const Dog& b) {
+		return a.name > b.name;
+		});
+	for (const Dog& a : v) {
+		a.show();
+	}
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1154
+저장 시간 : 2022-05-25 12:58:13 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+uniform_int_distribution<int> uidName{ 'A','Z' };
+uniform_int_distribution<int> uid{ 1,10 };
+
+struct Dog {
+	string name;
+	int n;
+	Dog() {
+		for (int i = 0; i < 5; ++i) {
+			name += uidName(dre);
+		}
+		n = uid(dre);
+	}
+
+	void show() const {
+		cout << name << " - " << format("{:>5}", n) << endl;
+	}
+};
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<Dog> v(20);
+
+	////stable_sort란?
+	sort(v.begin(), v.end(), [](const Dog& a, const Dog& b) {
+		return a.name < b.name;
+		});
+	for (const Dog& a : v) {
+		a.show();
+	}
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1333
+저장 시간 : 2022-05-25 12:59:57 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+uniform_int_distribution<int> uidName{ 'A','Z' };
+uniform_int_distribution<int> uid{ 0,9 };
+
+struct Dog {
+	string name;
+	int n;
+	Dog() {
+		for (int i = 0; i < 5; ++i) {
+			name += uidName(dre);
+		}
+		n = uid(dre);
+	}
+
+	void show() const {
+		cout << name << " - " << format("{:>5}", n) << endl;
+	}
+};
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<Dog> v(20);
+
+	////stable_sort란?
+	sort(v.begin(), v.end(), [](const Dog& a, const Dog& b) {
+		return a.name < b.name;
+		});
+	for (const Dog& a : v) {
+		a.show();
+	}
+	cout << "\n\n";
+
+	//n값 오름차순 정렬 후 출력
+	sort(v.begin(), v.end(), [](const Dog& a, const Dog& b) {
+		return a.n < b.n;
+		});
+	for (const Dog& a : v) {
+		a.show();
+	}
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1334
+저장 시간 : 2022-05-25 13:02:04 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+uniform_int_distribution<int> uidName{ 'A','Z' };
+uniform_int_distribution<int> uid{ 0,9 };
+
+struct Dog {
+	string name;
+	int n;
+	Dog() {
+		for (int i = 0; i < 5; ++i) {
+			name += uidName(dre);
+		}
+		n = uid(dre);
+	}
+
+	void show() const {
+		cout << name << " - " << format("{:>5}", n) << endl;
+	}
+};
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<Dog> v(100);
+
+	////stable_sort란?
+	sort(v.begin(), v.end(), [](const Dog& a, const Dog& b) {
+		return a.name < b.name;
+		});
+	for (const Dog& a : v) {
+		a.show();
+	}
+	cout << "\n\n";
+
+	//n값 오름차순 정렬 후 출력
+	sort(v.begin(), v.end(), [](const Dog& a, const Dog& b) {
+		return a.n < b.n;
+		});
+	for (const Dog& a : v) {
+		a.show();
+	}
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1334
+저장 시간 : 2022-05-25 13:02:30 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+uniform_int_distribution<int> uidName{ 'A','Z' };
+uniform_int_distribution<int> uid{ 0,9 };
+
+struct Dog {
+	string name;
+	int n;
+	Dog() {
+		for (int i = 0; i < 5; ++i) {
+			name += uidName(dre);
+		}
+		n = uid(dre);
+	}
+
+	void show() const {
+		cout << name << " - " << format("{:>5}", n) << endl;
+	}
+};
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<Dog> v(100);
+
+	////stable_sort란?
+	sort(v.begin(), v.end(), [](const Dog& a, const Dog& b) {
+		return a.name < b.name;
+		});
+	for (const Dog& a : v) {
+		a.show();
+	}
+	cout << "\n\n";
+
+	//n값 오름차순 정렬 후 출력
+	sort(v.begin(), v.end(), [](const Dog& a, const Dog& b) {
+		return a.n < b.n;
+		});
+	for (const Dog& a : v) {
+		a.show();
+	}
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1341
+저장 시간 : 2022-05-25 13:03:51 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <numeric>
+#include <format>
+#include <string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+random_device rd;
+default_random_engine dre{ rd()};
+uniform_int_distribution<int> uidName{ 'A','Z' };
+uniform_int_distribution<int> uid{ 0,9 };
+
+struct Dog {
+	string name;
+	int n;
+	Dog() {
+		for (int i = 0; i < 5; ++i) {
+			name += uidName(dre);
+		}
+		n = uid(dre);
+	}
+
+	void show() const {
+		cout << name << " - " << format("{:>5}", n) << endl;
+	}
+};
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<Dog> v(100);
+
+	////stable_sort란?
+	sort(v.begin(), v.end(), [](const Dog& a, const Dog& b) {
+		return a.name < b.name;
+		});
+	for (const Dog& a : v) {
+		a.show();
+	}
+	cout << "\n\n";
+
+	//n값 오름차순 정렬 후 출력
+	stable_sort(v.begin(), v.end(), [](const Dog& a, const Dog& b) {
+		return a.n < b.n;
+		});
+	for (const Dog& a : v) {
+		a.show();
+	}
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 631
+저장 시간 : 2022-05-25 13:15:01 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<int> v{ 1,2,3,4,5 };
+	cout << distance(v.begin(), v.end()) << endl;
+	cout << distance(v.end(), v.begin()) << endl;
+
+
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 750
+저장 시간 : 2022-05-25 13:17:21 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<class iter>
+long long  dist(iter b, iter e) {
+	return e - b;
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<int> v{ 1,2,3,4,5 };
+
+	//[문제] 템플릿 함수 dist를 작성하라
+
+	cout << distance(v.begin(), v.end()) << endl;
+	cout << distance(v.end(), v.begin()) << endl;
+
+
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 742
+저장 시간 : 2022-05-25 13:17:29 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<class iter>
+long long  dist(iter b, iter e) {
+	return e - b;
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<int> v{ 1,2,3,4,5 };
+
+	//[문제] 템플릿 함수 dist를 작성하라
+
+	cout << dist(v.begin(), v.end()) << endl;
+	cout << dist(v.end(), v.begin()) << endl;
+
+
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 774
+저장 시간 : 2022-05-25 13:18:23 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<class iter>
+long long  dist(iter b, iter e) {
+	return e - b;
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<int> v{ 1,2,3,4,5 };
+
+	//[문제] 템플릿 함수 dist를 작성하라
+
+	cout << dist(v.begin(), v.end()) << endl;
+	cout << dist(v.end(), v.begin()) << endl;
+	cout << dist(1, 100) << endl;
+
+
+
+
+
+}
