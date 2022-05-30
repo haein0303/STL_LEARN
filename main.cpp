@@ -10,30 +10,38 @@
 
 
 #include <iostream>
-#include <vector>
+#include <string>
+#include <random>
 #include "save.h"
 #include "STRING.h"
 #include "my_Algorithm.h"
 
 using namespace std;
 
-template<class iter>
-long long  dist(iter b, iter e) {
-	return e - b;
-}
-
+default_random_engine dre;
+uniform_int_distribution<> uid(1,100);
+uniform_int_distribution<> uidName{ 'a','z' };
+struct Dog {
+	string name;
+	int n;
+	Dog() {
+		n = uid(dre);
+		for (int i = 0; i < 5; ++i) {
+			name += uidName(dre);
+		}
+	}
+};
 int main() {
 
 	save("main.cpp");
 	
-	vector<int> v{ 1,2,3,4,5 };
+	vector<Dog> v(100);
 
-	//[문제] 템플릿 함수 dist를 작성하라
+	ranges::sort(v, {}, &Dog::n);
 
-	cout << dist(v.begin(), v.end()) << endl;
-	cout << dist(v.end(), v.begin()) << endl;
-	cout << dist(1, 100) << endl;
-
+	for (auto a : v) {
+		cout << a.name << " - " << a.n << endl;
+	}
 
 
 

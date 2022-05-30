@@ -21924,3 +21924,767 @@ int main() {
 
 
 }
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1114
+저장 시간 : 2022-05-30 10:41:40 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<class iter>
+long long  dist(iter b, iter e) {
+	//만일 전달되는 반복자가 Random_access 반복자라면 두 반복자 사이의 거리는
+	//if ( iter가 random_access라면 )
+	return e - b;
+
+	//그렇지 않다면, 반복자간의 거리는 몇 걸음인지 세 보는 수 밖엔 없다.
+	long long step{ 0 };
+	while (b != e) {
+		++step;
+		++b;
+	}
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<int> v{ 1,2,3,4,5 };
+
+	//[문제] 템플릿 함수 dist를 작성하라
+
+	//이게 정확한 표기
+	cout << dist<vector<int>::iterator>(v.begin(), v.end()) << endl;
+
+	cout << dist(v.begin(), v.end()) << endl;
+	cout << dist(v.end(), v.begin()) << endl;
+	cout << dist(1, 100) << endl;
+
+
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1301
+저장 시간 : 2022-05-30 10:53:05 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<class iter>
+long long  dist(iter b, iter e) {
+	//만일 전달되는 반복자가 Random_access 반복자라면 두 반복자 사이의 거리는
+	//if ( iter가 random_access라면 ) 알수있는 식
+	
+	//5if (is_same_v< typename iterator_traits<iter>::iterator_category,random_access_iterator_tag> ) 
+	{
+		cout << "전달된 iter는 Random_access_ 반복자가 맞다" << endl;
+		return e - b;
+	}
+	
+
+	//그렇지 않다면, 반복자간의 거리는 몇 걸음인지 세 보는 수 밖엔 없다.
+	int step{ 0 };
+	while (b != e) {
+		++step;
+		++b;
+	}
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<int> v{ 1,2,3,4,5 };
+
+	//[문제] 템플릿 함수 dist를 작성하라
+
+	//이게 정확한 표기
+	cout << dist<vector<int>::iterator>(v.begin(), v.end()) << endl;
+
+	cout << dist(v.begin(), v.end()) << endl;
+	cout << dist(v.end(), v.begin()) << endl;
+	cout << dist(1, 100) << endl;
+
+
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 638
+저장 시간 : 2022-05-30 10:54:57 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<class T>
+T add(T a, T b) {
+
+	return a + b;
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	
+
+	//[문제] 템플릿 함수 add를 정의하라
+
+
+	cout << add(1, 3) << endl;
+
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 662
+저장 시간 : 2022-05-30 10:58:09 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include<string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<class T>
+T add(T a, T b) {
+
+	return a + b;
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	
+
+	//[문제] 템플릿 함수 add를 정의하라
+
+
+	cout << add("1"s, "4"s) << endl;
+
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 797
+저장 시간 : 2022-05-30 11:09:54 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include<string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<class T>
+T add(T a, T b) {
+	//T가 산순연산가능하다면 + 계산
+	if (is_arithmetic_v<T>) {
+		cout << "산순연산 가능 타입 " << endl;
+		return a + b;
+	}
+	else {
+		return a;
+	}
+
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	
+
+	//[문제] 템플릿 함수 add를 정의하라
+
+
+	cout << add("1"s, "4"s) << endl;
+
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 797
+저장 시간 : 2022-05-30 11:10:23 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include<string>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<class T>
+T add(T a, T b) {
+	//T가 산순연산가능하다면 + 계산
+	if (is_arithmetic_v<T>) {
+		cout << "산순연산 가능 타입 " << endl;
+		return a + b;
+	}
+	else {
+		return a;
+	}
+
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	
+
+	//[문제] 템플릿 함수 add를 정의하라
+
+
+	cout << add(1.1f, 2.2f) << endl;
+
+
+
+
+}
+
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1237
+저장 시간 : 2022-05-30 11:22:55 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <list>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<class iter>
+long long  dist(iter b, iter e) {
+	
+	//선택적 소스 생성 ( 조건에 따라 코드를 생성 )
+	if constexpr(is_same_v<typename iterator_traits<iter>::iterator_category, random_access_iterator_tag> ) 
+	{
+		cout << "전달된 iter는 Random_access_ 반복자가 맞다" << endl;
+		return e - b;
+	}
+	int step{ 0 };
+	while (b != e) {
+		++step;
+		++b;
+	}
+	return step;
+	
+}
+
+int main() {
+
+	save("main.cpp");
+
+	list<int> lst{ 1,2,3,4,5 };
+
+	//[문제] dist를 호출할때 Random_access 반복자가 아닌 인자로 호출할때
+	//탬플릿 코드 전체가 생성되므로 e-b는 컴파일되지 않는다
+	// C++17이전 : tag dispatching 으로 해결
+	// C++17이후 : constexpr if가 추가되어 if로 해결할 수 있다
+	cout << dist(lst.begin(), lst.end()) << endl;
+
+
+
+
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1048
+저장 시간 : 2022-05-30 11:59:41 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <list>
+#include <concepts>
+#include <iterator>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<input_iterator iter>
+long long  dist(iter b, iter e) {
+	
+	//선택적 소스 생성 ( 조건에 따라 코드를 생성 )
+	if constexpr(is_same_v<typename iterator_traits<iter>::iterator_category, random_access_iterator_tag> ) 
+	{
+		cout << "전달된 iter는 Random_access_ 반복자가 맞다" << endl;
+		return e - b;
+	}
+	int step{ 0 };
+	while (b != e) {
+		++step;
+		++b;
+	}
+	return step;
+	
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	vector<int>v{ 12,3,4 };
+
+	cout << dist(v.begin(), v.end()) << endl;
+
+
+
+
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1023
+저장 시간 : 2022-05-30 12:04:49 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <list>
+#include <concepts>
+#include <iterator>
+#include <deque>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<input_iterator iter>
+void f(iter a) {
+	
+	//선택적 소스 생성 ( 조건에 따라 코드를 생성 )
+	if constexpr(is_same_v<typename iterator_traits<iter>::iterator_category, contiguous_iterator_tag> ) 
+	{
+		cout << "전달된 iter는 contiguous 반복자가 맞다" << endl;
+	}
+	
+	
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	//[문제] contiguous 반복자 일때만, 화면에 출력하는 탬플릿 함수를 정의하라
+	vector<int> v;
+	deque<int> d;
+
+	f(v.begin());
+	f(d.begin());
+
+
+
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 946
+저장 시간 : 2022-05-30 12:09:31 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <list>
+#include <concepts>
+#include <iterator>
+#include <deque>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+template<input_iterator iter>
+void f(iter a) {
+	
+	if (contiguous_iterator<iter>)
+	{
+		cout << "contiguous_iterator이다" << endl;
+	}
+	else {
+		cout << "contiguous_iterator아니다" << endl;
+	}
+	
+}
+
+int main() {
+
+	save("main.cpp");
+	
+	//[문제] contiguous 반복자 일때만, 화면에 출력하는 탬플릿 함수를 정의하라
+	vector<int> v;
+	deque<int> d;
+
+	f(v.begin());
+	f(d.begin());
+
+
+
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 744
+저장 시간 : 2022-05-30 12:17:07 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <string>
+#include <random>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+default_random_engine dre;
+uniform_int_distribution<> uid;
+
+struct Dog {
+	string name;
+	int n;
+	Dog() {
+		n = uid(dre);
+	}
+};
+int main() {
+
+	save("main.cpp");
+	
+	vector<Dog> v(100);
+
+	for (auto a : v) {
+		cout << a.name << " - " << a.n << endl;
+	}
+
+
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 862
+저장 시간 : 2022-05-30 12:17:57 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <string>
+#include <random>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+default_random_engine dre;
+uniform_int_distribution<> uid(1,100);
+uniform_int_distribution<> uidName{ 'a','z' };
+struct Dog {
+	string name;
+	int n;
+	Dog() {
+		n = uid(dre);
+		for (int i = 0; i < 10; ++i) {
+			name += uidName(dre);
+		}
+	}
+};
+int main() {
+
+	save("main.cpp");
+	
+	vector<Dog> v(100);
+
+	for (auto a : v) {
+		cout << a.name << " - " << a.n << endl;
+	}
+
+
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 897
+저장 시간 : 2022-05-30 12:18:43 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.5.25.        수34              월23수34               12주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <string>
+#include <random>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+
+using namespace std;
+
+default_random_engine dre;
+uniform_int_distribution<> uid(1,100);
+uniform_int_distribution<> uidName{ 'a','z' };
+struct Dog {
+	string name;
+	int n;
+	Dog() {
+		n = uid(dre);
+		for (int i = 0; i < 5; ++i) {
+			name += uidName(dre);
+		}
+	}
+};
+int main() {
+
+	save("main.cpp");
+	
+	vector<Dog> v(100);
+
+	ranges::sort(v, {}, &Dog::n);
+
+	for (auto a : v) {
+		cout << a.name << " - " << a.n << endl;
+	}
+
+
+
+
+}

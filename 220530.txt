@@ -1,0 +1,24 @@
+알고리즘 함수 = 반복자로 인자로 받음
+
+distance ( b , e )
+
+메모리가 붙어있는 메모리를 접근할때는 그냥 하면됨
+하지만 리스트와 같은 독립된 메모리를 가진 경우 직접 걸음을 세줘야됨
+
+표준 반복자일 경우 자신이 어떤 타입인지(5가지 중) 답을 할 수 있어야됨
+
+C++20dml major change 4things
+1. range
+2. module
+3. concepts
+4. coroutine
+
+탬플릿 함수 = 제네릭 = 전달되는 자료형에 관계없이 덧셈등의 기능을 수행하는 함수
+
+meta programing
+
+//[문제] dist를 호출할때 Random_access 반복자가 아닌 인자로 호출할때
+	//탬플릿 코드 전체가 생성되므로 e-b는 컴파일되지 않는다
+	// C++17이전 : tag dispatching 으로 해결
+	// C++17이후 : constexpr if가 추가되어 if로 해결할 수 있다
+
