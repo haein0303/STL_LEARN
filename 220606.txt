@@ -1,0 +1,16 @@
+C++20의 4가지 핵심 변화
+1. Concepts
+2. Range ( view )
+3. Module
+4. coroutine
+
+탬플릿 특수화 - 특정 타입에 대한 정의를 프로그래머가 제공
+선택적 코드 생성에 관련된 내용
+C++ 17 이전 : tag_dispatching
+C++ 17 에서 : constexpr if
+C++ 20 이후 : concept - 조건에 맞을때만 코드를 생성 / 선택적으로 코드를 생성
+
+Range / View
+
+constrained algorithm은 대부분 projection을 지원
+
