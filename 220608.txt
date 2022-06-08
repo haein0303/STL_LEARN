@@ -1,0 +1,12 @@
+	for (int n : views::iota(1)
+				| views::filter(È¦¼ö) 
+				| views::transform(Á¦°ö)
+				| views::take(10000)
+				| views::reverse
+		)
+	{
+		cout << format("{:10}", n) << " ";
+	}
+
+	
+	¾Ö³Ê±×·¥

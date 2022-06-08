@@ -24340,3 +24340,2008 @@ int main() {
 	}
 
 }
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 998
+저장 시간 : 2022-06-08 11:30:49 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <random>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+int main() {
+
+	save("main.cpp");
+
+	int a[]{ 1,2,3,4,5,6,7,8,9,10 };
+	//[문제] 1부터 시작하는 자연수에서 range a에서 홀수만 골라 제곱하여 출력하라
+	auto 홀수 = [](int n) {return n % 2; };
+	auto 제곱 = [](int n) {return n * n; };
+	for (int n : views::iota(1)
+				| views::filter(홀수) 
+				| views::transform(제곱)
+				| views::take(10000)
+				| views::reverse
+		)
+	{
+		cout << format("{:10}", n) << " ";
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 749
+저장 시간 : 2022-06-08 11:33:06 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <random>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+int main() {
+
+	save("main.cpp");
+
+	int a[]{ 1,2,3,4,5,6,7,8,9,10 };
+	//[문제] 소수(prime number)를 출력하라
+	for (int n : views::iota(1))
+	{
+		cout << n << " ";
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 944
+저장 시간 : 2022-06-08 11:40:08 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <random>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+bool isPrime(int num) {
+	for (int i = 2; i <= num / 2; ++i) {
+		if (num % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+int main() {
+
+	save("main.cpp");
+
+	int a[]{ 1,2,3,4,5,6,7,8,9,10 };
+	//[문제] 소수(prime number)를 출력하라
+	
+
+	for (int n : views::iota(1)
+				| views::filter(isPrime)
+				| views::take(100)
+		)
+	{
+		cout << n << " ";
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 953
+저장 시간 : 2022-06-08 11:42:53 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <random>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+bool isPrime(int num) {
+	for (int i = 2; i <= num / 2; ++i) {
+		if (num % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+int main() {
+
+	save("main.cpp");
+
+	int a[]{ 1,2,3,4,5,6,7,8,9,10 };
+	//[문제] 소수(prime number)를 출력하라
+	
+
+	for (int n : views::iota(1)
+				| views::filter(isPrime)
+				| views::take(100)
+		)
+	{
+		cout << format("{:8}", n);
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 929
+저장 시간 : 2022-06-08 11:43:05 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <random>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+bool isPrime(int num) {
+	for (int i = 2; i <= num / 2; ++i) {
+		if (num % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+int main() {
+
+	save("main.cpp");
+
+	int a[]{ 1,2,3,4,5,6,7,8,9,10 };
+	//[문제] 소수(prime number)를 출력하라
+	
+
+	for (int n : views::iota(1)
+				| views::filter(isPrime)
+		)
+	{
+		cout << format("{:8}", n);
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 991
+저장 시간 : 2022-06-08 11:44:48 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <random>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+bool isPrime(int num) {
+	for (int i = 2; i <= num / 2; ++i) {
+		if (num % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+int main() {
+
+	save("main.cpp");
+
+	int a[]{ 1,2,3,4,5,6,7,8,9,10 };
+	//[문제] 10000부터 시작하는 자연수 중에서 소수(prime number)를 출력하라
+	
+
+	for (int n : views::iota(10000)
+				| views::filter(isPrime)
+				| views::take(2000)
+		)
+	{
+		cout << format("{:8}", n);
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 996
+저장 시간 : 2022-06-08 11:48:09 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <random>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+bool isPrime(int num) {
+	for (int i = 2; i <= num / 2; ++i) {
+		if (num % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+int main() {
+
+	save("main.cpp");
+
+	int a[]{ 1,2,3,4,5,6,7,8,9,10 };
+	//[문제] 10000부터 시작하는 자연수 중에서 소수(prime number)를 출력하라
+	
+
+	for (int n : views::iota(1000000000)
+				| views::filter(isPrime)
+				| views::take(2000)
+		)
+	{
+		cout << format("{:8}", n);
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 997
+저장 시간 : 2022-06-08 11:48:24 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <random>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+bool isPrime(int num) {
+	for (int i = 2; i <= num / 2; ++i) {
+		if (num % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+int main() {
+
+	save("main.cpp");
+
+	int a[]{ 1,2,3,4,5,6,7,8,9,10 };
+	//[문제] 10000부터 시작하는 자연수 중에서 소수(prime number)를 출력하라
+	
+
+	for (int n : views::iota(1000000000)
+				| views::filter(isPrime)
+				| views::take(2000)
+		)
+	{
+		cout << format("{:16}", n);
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 754
+저장 시간 : 2022-06-08 11:58:10 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {});
+
+	for (string n : v) {
+		cout << n << endl;
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 748
+저장 시간 : 2022-06-08 11:59:02 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {});
+
+	cout << "사이즈 : " << v.size() << endl;
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1188
+저장 시간 : 2022-06-08 12:14:31 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	auto p = unique(v.begin(), v.end());
+	if (p == v.end()) {
+		cout << "중복된 단어 없음" << endl;
+	}
+	else {
+		cout << "중복된 단어 있음" << endl;
+	}
+
+	set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;
+
+	cout << "사이즈 : " << v.size() << endl;
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1515
+저장 시간 : 2022-06-08 12:18:41 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	auto p = unique(v.begin(), v.end());
+	if (p == v.end()) {
+		cout << "중복된 단어 없음" << endl;
+	}
+	else {
+		cout << "중복된 단어 있음" << endl;
+	}
+
+	set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : " << endl;
+		cin >> word;
+		if (s.find(word)==s.end()) {
+			cout << "있다" << endl;
+		}
+		else {
+			cout << "없다" << endl;
+		}
+
+
+	}
+
+	cout << "사이즈 : " << v.size() << endl;
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1507
+저장 시간 : 2022-06-08 12:19:02 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	auto p = unique(v.begin(), v.end());
+	if (p == v.end()) {
+		cout << "중복된 단어 없음" << endl;
+	}
+	else {
+		cout << "중복된 단어 있음" << endl;
+	}
+
+	set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : ";
+		cin >> word;
+		if (s.find(word)!=s.end()) {
+			cout << "있다" << endl;
+		}
+		else {
+			cout << "없다" << endl;
+		}
+
+
+	}
+
+	cout << "사이즈 : " << v.size() << endl;
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1774
+저장 시간 : 2022-06-08 12:36:38 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	//auto p = unique(v.begin(), v.end());
+	//if (p == v.end()) {
+	//	cout << "중복된 단어 없음" << endl;
+	//}
+	//else {
+	//	cout << "중복된 단어 있음" << endl;
+	//}
+
+	/*set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;*/
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	cout << "가장 긴 단어" << endl;
+	auto p = max_element(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a.length() > b.length();
+		});
+
+	cout << "길이가 가장 긴 단어 = " << p->length() << " , " << *p << endl;
+
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word)) {
+			cout << word << "는 없는 단어 입니다" << endl;
+			continue;
+		}
+	}
+
+	cout << "사이즈 : " << v.size() << endl;
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1774
+저장 시간 : 2022-06-08 12:36:49 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	//auto p = unique(v.begin(), v.end());
+	//if (p == v.end()) {
+	//	cout << "중복된 단어 없음" << endl;
+	//}
+	//else {
+	//	cout << "중복된 단어 있음" << endl;
+	//}
+
+	/*set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;*/
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	cout << "가장 긴 단어" << endl;
+	auto p = max_element(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a.length() < b.length();
+		});
+
+	cout << "길이가 가장 긴 단어 = " << p->length() << " , " << *p << endl;
+
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word)) {
+			cout << word << "는 없는 단어 입니다" << endl;
+			continue;
+		}
+	}
+
+	cout << "사이즈 : " << v.size() << endl;
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1960
+저장 시간 : 2022-06-08 12:42:15 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	//auto p = unique(v.begin(), v.end());
+	//if (p == v.end()) {
+	//	cout << "중복된 단어 없음" << endl;
+	//}
+	//else {
+	//	cout << "중복된 단어 있음" << endl;
+	//}
+
+	/*set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;*/
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	cout << "가장 긴 단어" << endl;
+	auto p = max_element(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a.length() < b.length();
+		});
+
+	cout << "길이가 가장 긴 단어 = " << p->length() << " , " << *p << endl;
+
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word)) {
+			cout << word << "는 없는 단어 입니다" << endl;
+			//continue;
+		}
+
+		//애너그램을 찾아 출력한다
+		//입력한 단어의 가능한 순열(pernutation)을 찾아 단어에 있나 검사한 후
+		//있다면 화면에 출력한다.
+		do {
+			cout << word << endl;
+		} while (next_permutation(word.begin(), word.end()));
+		
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 2097
+저장 시간 : 2022-06-08 12:46:50 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	//auto p = unique(v.begin(), v.end());
+	//if (p == v.end()) {
+	//	cout << "중복된 단어 없음" << endl;
+	//}
+	//else {
+	//	cout << "중복된 단어 있음" << endl;
+	//}
+
+	/*set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;*/
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	cout << "가장 긴 단어" << endl;
+	auto p = max_element(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a.length() < b.length();
+		});
+
+	cout << "길이가 가장 긴 단어 = " << p->length() << " , " << *p << endl;
+
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word)) {
+			cout << word << "는 없는 단어 입니다" << endl;
+			//continue;
+		}
+
+		//애너그램을 찾아 출력한다
+		//입력한 단어의 가능한 순열(pernutation)을 찾아 단어에 있나 검사한 후
+		//있다면 화면에 출력한다.
+		cout << word << "의 애너그램들" << endl;
+		sort(word.begin(), word.end());
+		do {
+			if (binary_search(v.begin(), v.end(), word)) {
+				cout << word << endl;
+			}
+		} while (next_permutation(word.begin(), word.end()));
+		
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 2092
+저장 시간 : 2022-06-08 12:47:13 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	//auto p = unique(v.begin(), v.end());
+	//if (p == v.end()) {
+	//	cout << "중복된 단어 없음" << endl;
+	//}
+	//else {
+	//	cout << "중복된 단어 있음" << endl;
+	//}
+
+	/*set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;*/
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	cout << "가장 긴 단어" << endl;
+	auto p = max_element(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a.length() < b.length();
+		});
+
+	cout << "길이가 가장 긴 단어 = " << p->length() << " , " << *p << endl;
+
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word)) {
+			cout << word << "는 없는 단어 입니다" << endl;
+			//continue;
+		}
+
+		//애너그램을 찾아 출력한다
+		//입력한 단어의 가능한 순열(pernutation)을 찾아 단어에 있나 검사한 후
+		//있다면 화면에 출력한다.
+		cout << word << "의 애너그램들 : ";
+		sort(word.begin(), word.end());
+		do {
+			if (binary_search(v.begin(), v.end(), word)) {
+				cout << word << "  ";
+			}
+		} while (next_permutation(word.begin(), word.end()));
+		
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 2105
+저장 시간 : 2022-06-08 12:47:48 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	//auto p = unique(v.begin(), v.end());
+	//if (p == v.end()) {
+	//	cout << "중복된 단어 없음" << endl;
+	//}
+	//else {
+	//	cout << "중복된 단어 있음" << endl;
+	//}
+
+	/*set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;*/
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	cout << "가장 긴 단어" << endl;
+	auto p = max_element(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a.length() < b.length();
+		});
+
+	cout << "길이가 가장 긴 단어 = " << p->length() << " , " << *p << endl;
+
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word)) {
+			cout << word << "는 없는 단어 입니다" << endl;
+			//continue;
+		}
+
+		//애너그램을 찾아 출력한다
+		//입력한 단어의 가능한 순열(permutation)을 찾아 단어에 있나 검사한 후
+		//있다면 화면에 출력한다.
+		cout << word << "의 애너그램들 : ";
+		sort(word.begin(), word.end());
+		do {
+			if (binary_search(v.begin(), v.end(), word)) {
+				cout << word << "  ";
+			}
+		} while (next_permutation(word.begin(), word.end()));
+		cout << endl;
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 2103
+저장 시간 : 2022-06-08 12:48:26 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	//auto p = unique(v.begin(), v.end());
+	//if (p == v.end()) {
+	//	cout << "중복된 단어 없음" << endl;
+	//}
+	//else {
+	//	cout << "중복된 단어 있음" << endl;
+	//}
+
+	/*set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;*/
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	cout << "가장 긴 단어" << endl;
+	auto p = max_element(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a.length() < b.length();
+		});
+
+	cout << "길이가 가장 긴 단어 = " << p->length() << " , " << *p << endl;
+
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word)) {
+			cout << word << "는 없는 단어 입니다" << endl;
+			continue;
+		}
+
+		//애너그램을 찾아 출력한다
+		//입력한 단어의 가능한 순열(permutation)을 찾아 단어에 있나 검사한 후
+		//있다면 화면에 출력한다.
+		cout << word << "의 애너그램들 : ";
+		sort(word.begin(), word.end());
+		do {
+			if (binary_search(v.begin(), v.end(), word)) {
+				cout << word << "  ";
+			}
+		} while (next_permutation(word.begin(), word.end()));
+		cout << endl;
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 2103
+저장 시간 : 2022-06-08 12:49:38 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	//auto p = unique(v.begin(), v.end());
+	//if (p == v.end()) {
+	//	cout << "중복된 단어 없음" << endl;
+	//}
+	//else {
+	//	cout << "중복된 단어 있음" << endl;
+	//}
+
+	/*set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;*/
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	cout << "가장 긴 단어" << endl;
+	auto p = max_element(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a.length() < b.length();
+		});
+
+	cout << "길이가 가장 긴 단어 = " << p->length() << " , " << *p << endl;
+
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word)) {
+			cout << word << "는 없는 단어 입니다" << endl;
+			continue;
+		}
+
+		//애너그램을 찾아 출력한다
+		//입력한 단어의 가능한 순열(permutation)을 찾아 단어에 있나 검사한 후
+		//있다면 화면에 출력한다.
+		cout << word << "의 애너그램들 : ";
+		sort(word.begin(), word.end());
+		do {
+			if (binary_search(v.begin(), v.end(), word)) {
+				cout << word << "  ";
+			}
+		} while (next_permutation(word.begin(), word.end()));
+		cout << endl;
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 2107
+저장 시간 : 2022-06-08 12:51:24 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	//auto p = unique(v.begin(), v.end());
+	//if (p == v.end()) {
+	//	cout << "중복된 단어 없음" << endl;
+	//}
+	//else {
+	//	cout << "중복된 단어 있음" << endl;
+	//}
+
+	/*set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;*/
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	cout << "가장 긴 단어" << endl;
+	auto p = max_element(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a.length() < b.length();
+		});
+
+	cout << "길이가 가장 긴 단어 = " << p->length() << " , " << *p << endl;
+
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word)) {
+			cout << word << "는 없는 단어 입니다" << endl;
+			continue;
+		}
+
+		//애너그램을 찾아 출력한다
+		//입력한 단어의 가능한 순열(permutation)을 찾아 단어에 있나 검사한 후
+		//있다면 화면에 출력한다.
+		cout << word << "의 애너그램들 : ";
+		sort(word.begin(), word.end());
+		do {
+			//if (binary_search(v.begin(), v.end(), word)) {
+				cout << word << "  ";
+			//}
+		} while (next_permutation(word.begin(), word.end()));
+		cout << endl;
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 2115
+저장 시간 : 2022-06-08 12:54:08 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	//auto p = unique(v.begin(), v.end());
+	//if (p == v.end()) {
+	//	cout << "중복된 단어 없음" << endl;
+	//}
+	//else {
+	//	cout << "중복된 단어 있음" << endl;
+	//}
+
+	/*set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;*/
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	cout << "가장 긴 단어" << endl;
+	auto p = max_element(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a.length() < b.length();
+		});
+
+	cout << "길이가 가장 긴 단어 = " << p->length() << " , " << *p << endl;
+
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word)) {
+			cout << word << "는 없는 단어 입니다" << endl;
+			continue;
+		}
+
+		//애너그램을 찾아 출력한다
+		//입력한 단어의 가능한 순열(permutation)을 찾아 단어에 있나 검사한 후
+		//있다면 화면에 출력한다.
+		cout << word << "의 애너그램들 : " << endl;
+		sort(word.begin(), word.end());
+		do {
+			//if (binary_search(v.begin(), v.end(), word)) {
+				cout << word << "\r";
+			//}
+		} while (next_permutation(word.begin(), word.end()));
+		cout << endl;
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 2269
+저장 시간 : 2022-06-08 13:01:33 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<string> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+
+
+	//[문제] 정렬되어있나? 중복된 던어는 없나?
+	
+	cout << boolalpha;
+	cout << "정렬? " << is_sorted(v.begin(), v.end()) << endl;
+	cout << "중복? ";
+	//auto p = unique(v.begin(), v.end());
+	//if (p == v.end()) {
+	//	cout << "중복된 단어 없음" << endl;
+	//}
+	//else {
+	//	cout << "중복된 단어 있음" << endl;
+	//}
+
+	/*set<string> s{ v.begin(),v.end() };
+	if (v.size() == s.size()) cout << "중복 없음" << endl;*/
+
+	//[문제] 사용자가 입력한 단어의 애너그램을 출력하라
+	// 1단계 : 사용자가 입력한 단어가 v에 있는지 확인하라
+
+	cout << "가장 긴 단어" << endl;
+	auto p = max_element(v.begin(), v.end(), [](const string& a, const string& b) {
+		return a.length() < b.length();
+		});
+
+	cout << "길이가 가장 긴 단어 = " << p->length() << " , " << *p << endl;
+
+	//길이 20글자 이상
+	auto a = find_if(v.begin(), v.end(), [](const string& s) {
+		return 20 == s.length();
+		});
+	cout << "20글자 : " << *a << endl;
+
+	while (true) {
+		string word;
+		cout << "찾을 단어를 입력하시오 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word)) {
+			cout << word << "는 없는 단어 입니다" << endl;
+			continue;
+		}
+
+		//애너그램을 찾아 출력한다
+		//입력한 단어의 가능한 순열(permutation)을 찾아 단어에 있나 검사한 후
+		//있다면 화면에 출력한다.
+		cout << word << "의 애너그램들 : " << endl;
+		sort(word.begin(), word.end());
+		do {
+			//if (binary_search(v.begin(), v.end(), word)) {
+				cout << word << "\r";
+			//}
+		} while (next_permutation(word.begin(), word.end()));
+		cout << endl;
+	}
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1022
+저장 시간 : 2022-06-08 13:17:08 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+struct WP : pair<string,string> { //wordPair
+	WP(string s) : pair<string, string>{ s,s } {
+		sort(first.begin(), first.end());
+	};
+
+
+};
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<WP> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+	
+	for (WP words : v 
+		| views::drop(10'000)
+		| views::take(100)
+		) 
+	{
+		cout << words.first << " -- " << words.second << endl;
+	}
+
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1057
+저장 시간 : 2022-06-08 13:18:24 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+struct WP : pair<string,string> { //wordPair
+	WP(string s) : pair<string, string>{ s,s } {
+		sort(first.begin(), first.end());
+	};
+
+
+};
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<WP> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+	
+	ranges::sort(v, {}, &WP::first);
+	for (WP words : v 
+		| views::drop(10'000)
+		| views::take(100)
+		) 
+	{
+		cout << words.first << " -- " << words.second << endl;
+	}
+
+
+}
+
+=============================================================================
+=============================================================================
+
+
+파일 정보 : main.cpp,  크기 - 1056
+저장 시간 : 2022-06-08 13:19:29 GMT+9
+
+
+// ============================================================================
+//									STL
+// 
+//	2022.6.6.        수34              월23수34               13주 2일     
+//
+//	알고리즘 - 어떤것들이 있나 살펴본다
+// 
+// 
+// ============================================================================
+
+
+#include <iostream>
+#include <concepts>
+#include <string>
+#include <format>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "STRING.h"
+#include "my_Algorithm.h"
+ 
+using namespace std;
+
+struct WP : pair<string,string> { //wordPair
+	WP(string s) : pair<string, string>{ s,s } {
+		sort(first.begin(), first.end());
+	};
+
+
+};
+
+
+
+int main() {
+
+	save("main.cpp");
+
+	ifstream in{ "단어들.txt" };
+	vector<WP> v(istream_iterator<string>{ in }, {}); //단어 수 369882
+	
+	ranges::sort(v, {}, &WP::first);
+	for (WP words : v 
+		| views::drop(10'000)
+		| views::take(50)
+		) 
+	{
+		cout << words.first << " -- " << words.second << endl;
+	}
+
+
+}
