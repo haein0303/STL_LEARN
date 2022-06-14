@@ -39,6 +39,9 @@
     <ClCompile Include="playground.cpp">
       <Filter>사용안해</Filter>
     </ClCompile>
+    <ClCompile Include="homeTranning.cpp">
+      <Filter>메모</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="save.h">
