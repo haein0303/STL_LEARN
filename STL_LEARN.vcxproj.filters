@@ -42,6 +42,9 @@
     <ClCompile Include="homeTranning.cpp">
       <Filter>메모</Filter>
     </ClCompile>
+    <ClCompile Include="알고리즘요약.cpp">
+      <Filter>메모</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="save.h">
