@@ -45,6 +45,9 @@
     <ClCompile Include="알고리즘요약.cpp">
       <Filter>메모</Filter>
     </ClCompile>
+    <ClCompile Include="FinalTest.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="save.h">
